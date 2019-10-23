@@ -1,0 +1,20 @@
+.login-title {
+  font-size: 30px;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+  display: block;
+  color: #FFFFFF;
+}
+.card {
+  background-color: #330067;
+
+}
+
+
+hr {
+    border:none;
+    height: 5px;
+    background-color: #3333;
+
+}
