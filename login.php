@@ -39,7 +39,7 @@ session_start();
 			echo 'connected2';
 		}
 
-		$query="select name FROM personnel";
+		$query="SELECT type, COUNT(type) as amount FROM live JOIN problem USING (problem_no) GROUP BY type";
 		$res = mysqli_query($conn, $sql);
 		$result = json_encode(mysqli_fetch_all($res, MYSQLI_NUM));
 		print_r($result);
