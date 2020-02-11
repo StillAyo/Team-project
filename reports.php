@@ -55,6 +55,7 @@
 					pie_chart_data.push([x['type'], parseInt(x['amount'])]);
 			}
 			pie_chart_data.splice(0,0,headings);
+			console.log(pie_chart_data);
 	});	
     </script>
 </head>
