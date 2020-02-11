@@ -42,7 +42,7 @@ session_start();
 		$query="SELECT * FROM personnel";
 		$res = mysqli_query($conn, $sql);
 		$result = json_encode(mysqli_fetch_all($res, MYSQLI_ASSOC));
-		echo $result;
+		print_r($result);
 				
 		
 		
