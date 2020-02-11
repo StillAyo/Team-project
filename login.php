@@ -118,8 +118,31 @@ session_start();
 		
 	} 
 	*/
-	$current_user = checkUser($user_id);
-	
+	/* $current_user = checkUser($user_id);
+	if (checkUser($user_id)){
+		$stored_credentials = retrievePassword($user_id);
+		if(compareHashes($stored_credentials[0], $stored_credentials[1], $password)){
+			/* test
+			
+			echo "ID string:  {$_REQUEST['userID']} <br /> ";
+			echo "password entered:   {$_REQUEST['password']} <br />";
+			$stored_password = retrievePassword($user_id);
+			echo "password saved:"; print_r($stored_password); echo "<br/>";
+			echo "query string:     {$_SERVER['QUERY_STRING']} <br />"; // method=post does not show  
+			echo "Action URL:       {$_SERVER['PHP_SELF']} <br />"; 
+			
+			
+			$_SESSION["site_id"] = $current_user;
+			include 'finalhomepage.html';
+		}
+		else{
+			echo "NOT CORRECT";
+		}
+	}
+	else{
+		echo "incorrect privileges";
+	}
+	*/
 ?>
 
 
