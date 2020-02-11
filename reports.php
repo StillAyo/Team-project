@@ -41,7 +41,7 @@
 			else{
 					echo "Connected successfully";
 					$testing = "hi";
-					
+					echo $testing;
 			}
 
 			// Check connection
@@ -49,7 +49,8 @@
 			$sql="SELECT * from personnel";
 			$result = mysqli_query($conn, $sql);
 			// Fetch all
-			$test = mysqli_fetch_all($result, MYSQLI_NUM);
+			$test = mysqli_fetch_all($result, MYSQLI_ASSOC);
+			
 
 			// Free result set
 			
