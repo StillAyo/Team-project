@@ -23,7 +23,7 @@ session_start();
 		echo "connected";
 	}
 	
-	function checkUser($user_id){
+	/* function checkUser($user_id){
 		$servername = "localhost";
 		$username = "root";
 		$password = "SIpnz0Sjel";
@@ -47,7 +47,7 @@ session_start();
 		
 		
 		
-	}
+	} */
 	/* function hashPassword($plaintext_password){
 		$hashed_password = hash("sha256", $plaintext_password);
 		return $hashed_password;
