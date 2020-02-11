@@ -39,10 +39,13 @@ session_start();
 			echo 'connected2';
 		}
 
-		$query="SELECT type, COUNT(type) as amount FROM live JOIN problem USING (problem_no) GROUP BY type";
-		$res = mysqli_query($conn, $sql);
-		$result = json_encode(mysqli_fetch_all($res, MYSQLI_ASSOC));
-		print_r($result);
+		$sql = "select * from personnel";
+		$result = mysqli_query($conn, $sql);
+		// Fetch all
+		$test = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+		// Free result set
+		print_r($test);
 				
 		
 		
