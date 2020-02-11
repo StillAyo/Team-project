@@ -190,7 +190,7 @@
 				$test = mysqli_fetch_all($result, MYSQLI_NUM);
 
 				// Free result set
-				print_r($test);
+				
 				echo $test[0];
 				
 						
