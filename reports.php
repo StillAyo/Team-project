@@ -50,7 +50,7 @@
 			$result = mysqli_query($conn, $sql);
 			// Fetch all
 			$test = mysqli_fetch_all($result, MYSQLI_ASSOC);
-			
+			echo $test;
 
 			// Free result set
 			
