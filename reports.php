@@ -36,7 +36,15 @@
 			// Create connection
 			$conn = mysqli_connect($servername, $username, $password, 'team018');
 
-			
+			if ($conn->connect_error) {
+				die("Connection failed: " . $conn->connect_error);
+				$testing = "no";
+			}
+			else{
+					echo "Connected successfully";
+					$testing = "hi";
+					
+			}
 
 			// Check connection
 			
@@ -49,7 +57,8 @@
 			
 			
 			?>
-			
+			var temp = '<?php echo $result?>';
+			console.log(temp);
 			/*
 		// Convert result from sql query into array, then send into google charts
 			function convertToArray(arrStr, headings){
