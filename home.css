@@ -11,6 +11,10 @@
 
 }
 
+.card-stats{
+  background-color: #FFFF
+}
+
 
 hr {
     border:none;
@@ -37,7 +41,7 @@ hr {
 }
 .navbar .navbar-text a:hover,
 .navbar .navbar-text a:focus {
-  color: #dcdcdc; 
+  color: #dcdcdc;
 }
 .navbar .navbar-nav .nav-link {
   color: #ecf0f1;

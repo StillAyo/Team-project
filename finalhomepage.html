@@ -10,9 +10,10 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <link rel="stylesheet" type="text/css" href="home.css">
 </head>
-<body style="background-image:url('https://images.unsplash.com/photo-1512998844734-cd2cca565822?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=663&q=80')">
+<body style="background-image:url('https://images.unsplash.com/photo-1470790376778-a9fbc86d70e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=649&q=80')">
 
-  <nav class="navbar navbar-default navbar-dark bg-d">
+<!-- NAVBAR -->
+  <nav class="navbar navbar-dark bg-primary">
     <a class="navbar-brand" href="#">Make-It-All</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -23,41 +24,68 @@
           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Problem search</a>
+          <a class="nav-link" href="logCall.html">Log Call</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Specialists</a>
+          <a class="nav-link" href="allProblems.html">Live Jobs</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Query
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Query Sub Option 1</a>
-            <a class="dropdown-item" href="#">Query Sub Option 2</a>
-            <a class="dropdown-item" href="#">Query Sub Option 2</a>
-          </div>
+        <li class="nav-item">
+          <a class="nav-link" href="reports.html">Analytics</a>
         </li>
       </ul>
       <ul>
         <ul class="nav navbar-nav" style="float: right">
-          <button class="btn btn btn-danger" type="button">Sign Out</button>
+          <button class="btn btn btn-danger" type="button" onclick="location.href = 'index.html'">Sign Out</button>
         </ul>
       </ul>
     </div>
   </nav>
-    <div style="margin-top: 4%;">
-		<p style="text-align:center;"><img src="https://pbs.twimg.com/profile_images/925645911539290112/1oDFxNO8_400x400.jpg" width="225" height="175" alt="Logo"></p>
+<!-- END NAVBAR -->
+
+
+
+  <div style="margin-top: 4%;">
+	<p style="text-align:center;"><img src="https://pbs.twimg.com/profile_images/925645911539290112/1oDFxNO8_400x400.jpg" width="225" height="175" alt="Logo"></p>
 	</div>
-  <div class=login-container>
-	<div class="card mx-auto text-center rounded" style="width: 25rem;margin-top: 3%;">
-		<form>
-		    <div class="card-body">
-				<h3 class="card-title login-title">Current Specialists</h2>
-			    <hr>
-			<a href="#" class="btn btn-primary">Search Specialists</a>
-			<br><br>
-		</form>
+  <br>
+  <div style="padding-left:35%">
+    <div class="row">
+      <div class="col">
+        <button type="button" class="btn btn-primary btn-lg" onclick="location.href = 'logCall.html'">Log Call</button>
+      </div>
+      <div class="col">
+        <button type="button" class="btn btn-primary btn-lg" onclick="location.href = 'allProblems.html'">Live Jobs</button>
+      </div>
+      <div class="col">
+        <button type="button" class="btn btn-primary btn-lg" onclick="location.href = 'reports.html'">Analytics</button>
+      </div>
+      <div class="col">
+      </div>
+      <div class="col">
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col">
+      <div class=login-container>
+        <div class="card" style="width: 50%; margin:auto">
+        <div class="card-body">
+          <h5 class="font-weight-bold mb-3" style="color:white; text-align:center;">Current queries</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Cras justo odio</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+        <div class="card-body">
+          <a href="allProblems.html" style="text-align:center;" class="card-link">View full list</a>
+        </div>
+      </div>
+      </div>
+    </div>
+
+  </div>
 
 </body>
 </html>

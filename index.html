@@ -9,21 +9,22 @@
 
 <!-- Login page section -->
 
-  <body style="background-image:url('https://images.unsplash.com/photo-1512998844734-cd2cca565822?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=663&q=80')">
+  <body style="background-image:url('https://images.unsplash.com/photo-1470790376778-a9fbc86d70e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=649&q=80')">
     <div class=login-container >
       <div class="card mx-auto text-center rounded" style="width: 25rem;margin-top: 3%;">
         <img src="https://pbs.twimg.com/profile_images/925645911539290112/1oDFxNO8_400x400.jpg" class="card-img-top " alt="..." height=350>
+        <!-- <img src="images/Screenshot_3.png" class="card-img-top " alt="..." height=350> -->
         <hr>
         <div class="card-body">
           <h3 class="card-title login-title">Log in</h2>
-            <form>
+            <form action="login.php" method="POST">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Email *" value="" />
+                <input type="text" name="userID" class="form-control" placeholder="Your ID *" value="" />
               </div>
               <div class="form-group">
-                <input type="password" class="form-control" placeholder="Your Password *" value="" />
+                <input type="password" name="password"class="form-control" placeholder="Your Password *" value="" />
               </div>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <input type="submit" value="Login" name="submit" class="btn btn-primary" />
               <!-- <div class="form-group">
                 <input type="submit" class="btnSubmit" value="Go somewhere" />
               </div> -->
@@ -33,7 +34,7 @@
               </div>
             </form>
 
-          <p class="card-text">content.</p>
+          <!-- <p class="card-text">content.</p> -->
         </div>
       </div>
   </div>
