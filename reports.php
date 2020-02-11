@@ -52,7 +52,8 @@
 			var pie_chart_data = [];
 			var headings = ['Problem type', 'Amount'];
 			for (x in temp){
-					pie_chart_data.push([x['type'], parseInt(x['amount'])]);
+				console.log(temp);
+					// pie_chart_data.push([x['type'], parseInt(x['amount'])]);
 			}
 			pie_chart_data.splice(0,0,headings);
 			console.log(pie_chart_data);
