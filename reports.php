@@ -26,14 +26,39 @@
 
   <!--Load the API-->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<?php
+			$servername = "localhost";
+			$username = "root";
+			$password = "SIpnz0Sjel";
+
+			// Create connection
+			$conn = mysqli_connect($servername, $username, $password, 'team018');
+
+			if ($conn->connect_error) {
+				die("Connection failed: " . $conn->connect_error);
+				$testing = "no";
+			}
+			else{
+					echo "Connected successfully";
+					$testing = "hi";
+					
+			}
+
+			// Check connection
+			
+			$sql="SELECT * from personnel";
+			$result = mysqli_query($conn, $sql);
+			// Fetch all
+			$test = mysqli_fetch_all($result, MYSQLI_NUM);
+
+			// Free result set
+			
+			
+	?>
     <script type="text/javascript">
 		$( document ).ready(function() {
-			<?php
 			
-			
-			
-			?>
-			var temp = 'hello';
+			var temp = '<?php echo $testing ?>';
 			console.log(temp);
 			/*
 		// Convert result from sql query into array, then send into google charts
@@ -174,31 +199,7 @@
 				// include "database-credentials.php";
 				echo "Working";
 				
-				$servername = "localhost";
-			$username = "root";
-			$password = "SIpnz0Sjel";
-
-			// Create connection
-			$conn = mysqli_connect($servername, $username, $password, 'team018');
-
-			if ($conn->connect_error) {
-				die("Connection failed: " . $conn->connect_error);
-				$testing = "no";
-			}
-			else{
-					echo "Connected successfully";
-					$testing = "hi";
-					
-			}
-
-			// Check connection
-			
-			$sql="SELECT * from personnel";
-			$result = mysqli_query($conn, $sql);
-			// Fetch all
-			$test = mysqli_fetch_all($result, MYSQLI_NUM);
-
-			// Free result set
+				
 						
 				/* $res =& $db->query($sql);
 				$result = json_encode($res->fetchAll());
