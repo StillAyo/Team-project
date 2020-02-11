@@ -75,6 +75,7 @@
 			document.getElementById("in-progress-queries").innerHTML = queries_in_progress[0];
 			
 			var temp2 = JSON.parse('<?php echo $result_4?>');
+			console.log(temp2);
 			var bar_chart_data = [];
 			for (x in temp2){
 				bar_chart_data.push([temp2[x]['type'], parseInt(temp2[x]['amount']),'color: #76A7FA']);
