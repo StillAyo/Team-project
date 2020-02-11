@@ -7,7 +7,7 @@ session_start();
  <body bgcolor="ffffff" text="000000">
 <?php
 	require_once "random_compat/lib/random.php";
-	$servername = "localhost";
+	/* $servername = "localhost";
 	$username = "root";
 	$password = "SIpnz0Sjel";
 
@@ -21,9 +21,9 @@ session_start();
 	
 	else {
 		echo "connected";
-	}
+	} */
 	
-	/* function checkUser($user_id){
+	function checkUser($user_id){
 		$servername = "localhost";
 		$username = "root";
 		$password = "SIpnz0Sjel";
@@ -40,14 +40,14 @@ session_start();
 		}
 
 		$query="SELECT * FROM personnel";
-		$res = mysqli_query($conn, $sql);
+		/* $res = mysqli_query($conn, $sql);
 		$result = mysqli_fetch_all($res, MYSQLI_ASSOC))
-		echo $result;
+		echo $result; */
 				
 		
 		
 		
-	} */
+	}
 	/* function hashPassword($plaintext_password){
 		$hashed_password = hash("sha256", $plaintext_password);
 		return $hashed_password;
@@ -90,7 +90,7 @@ session_start();
 	} */
 	$user_id = $_REQUEST['userID'];
 	$password = $_REQUEST['password'];
-	echo $user_id;
+	
 	
 	$id_array = array("11111", "1234", "22222", "33333", "34544", "5678", "9011", "9453");
 	
