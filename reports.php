@@ -49,9 +49,10 @@
 			?>
 			var temp = JSON.parse('<?php echo $test?>');
 			console.log(temp);
-			var pie_chart_data = [];
 			var headings = ['Problem type', 'Amount'];
-			
+			var pie_chart_data = Object.keys(obj).map(function(key) {return [Number(key), obj[key]];});
+			console.log(pie_chart_data);
+			pie_chart_data.splice(0,0,headings);
 	});	
     </script>
 </head>
