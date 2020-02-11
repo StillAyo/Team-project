@@ -188,7 +188,7 @@
 
 				// Free result set
 				print_r($test);
-				echo $test[1]['name'];
+				echo $test;
 				
 						
 				/* $res =& $db->query($sql);
