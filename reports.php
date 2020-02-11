@@ -48,7 +48,7 @@
 				$current_year = date("Y")-1;
 				$sql_2 = "SELECT count(problem_no) from resolved WHERE date BETWEEN '$current_year-01-01' and '$current_year-12-31'";
 				$res = mysqli_query($conn, $sql_2);
-				$result_2 = json_encode(mysqli_fetch_all($res, MYSQLI_ASSOC));
+				$result_2 = json_encode(mysqli_fetch_all($res, MYSQLI_NUM));
 				
 				$sql_3 = "SELECT count(problem_no) from live";
 				$res = mysqli_query($conn, $sql_3);
