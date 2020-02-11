@@ -191,7 +191,7 @@
 
 				// Free result set
 				
-				echo $test[0];
+				echo $test[0][0];
 				print_r($test);
 				
 						
