@@ -178,7 +178,7 @@
 					die("Connection failed: " . $conn->connect_error);
 				}
 				else{
-						echo "Connected successfully";
+						echo "Connected now <br/>";
 				}
 				
 				$sql="SELECT * FROM personnel";
