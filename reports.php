@@ -26,174 +26,34 @@
 
   <!--Load the API-->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-	
     <script type="text/javascript">
 		$( document ).ready(function() {
 			<?php
-			$servername = "localhost";
-			$username = "root";
-			$password = "SIpnz0Sjel";
+				$servername = "localhost";
+				$username = "root";
+				$password = "SIpnz0Sjel";
 
-			// Create connection
-			$conn = mysqli_connect($servername, $username, $password, 'team018');
+				// Create connection
+				$conn = mysqli_connect($servername, $username, $password, 'team018');
 
-			if ($conn->connect_error) {
-				die("Connection failed: " . $conn->connect_error);
-				$testing = "no";
-			}
-			
-
-			// Check connection
-			
-			$sql="SELECT * from personnel";
-			$result = mysqli_query($conn, $sql);
-			// Fetch all
-			$test = mysqli_fetch_all($result, MYSQLI_ASSOC);
-			
-
-			// Free result set
-			
-			
-	?>
-			
-			var temp = 'hello';
-			console.log(temp);
-			/*
-		// Convert result from sql query into array, then send into google charts
-			function convertToArray(arrStr, headings){
-				//
-			}
-			
+				// Check connection
+				if ($conn->connect_error) {
+					die("Connection failed: " . $conn->connect_error);
+				}
+				
+				$sql = "select * from personnel";
+				$result = mysqli_query($conn, $sql);
+				// Fetch all
+				$test = json_encode(mysqli_fetch_all($result, MYSQLI_ASSOC));
+				
+			?>
 			var temp = JSON.parse('<?php echo $result?>');
-			var pie_chart_data = [];
-			var headings = ['Problem type', 'Amount'];
-			for (x in temp){
-				temp[x][1] = parseInt(temp[x][1])
-				pie_chart_data[x] = temp[x];
-			}
-			pie_chart_data.splice(0,0,headings);
-			
-		// resolved queries value
-			var total_resolved_queries = JSON.parse('<?php echo $result_2?>');
-			document.getElementById("resolved-queries").innerHTML = total_resolved_queries[0][0];
-			
-		// resolved queries value
-			var queries_in_progress = JSON.parse('<?php echo $result_3?>');
-			document.getElementById("in-progress-queries").innerHTML = queries_in_progress[0][0];
-			
-			var temp2 = JSON.parse('<?php echo $result_4?>');
-			console.log(temp2);
-			var bar_chart_data = [];
-			for (x in temp2){
-				temp2[x][1] = parseInt(temp2[x][1]);
-				temp2[x].push('color: #76A7FA');
-				bar_chart_data[x] = temp2[x];
-			}
-			var headings_2 = ['Specialist', 'Job No',{role:'style'}];
-			bar_chart_data.splice(0,0,headings_2);
-			
-		  // Load the Visualization API and the corechart package.
-		  google.charts.load('current', {'packages':['corechart']});
-
-		  // Set a callback to run when the Google Visualization API is loaded.
-		  google.charts.setOnLoadCallback(drawPieChart);
-		  google.charts.setOnLoadCallback(drawLineGraph);
-		  google.charts.setOnLoadCallback(drawBarGraph);
-
-		  // Callback that creates and populates a data table,
-		  // instantiates the pie chart, passes in the data and
-		  // draws it.
-		  function drawPieChart() {
-			 var data = google.visualization.arrayToDataTable([
-			//  ['Problem type', 'Amount'],
-			//  ['Microsoft Word 2013',     11],
-			//  ['Software',      2],
-			//  ['HP All-In-One Printer',  2],
-			//  ['Lenovo laptop', 2],
-			//  ['Python 3.6',    7]
-			//]);
-			
-			
-			var data = google.visualization.arrayToDataTable(pie_chart_data);
-
-			var options = {
-			  title: '',
-			  is3D: true,
-			  'width':400,
-			  'height':300
-			};
-
-			// Instantiate and draw our chart, passing in some options.
-			var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-			chart.draw(data, options);
-		  }
-
-
-		  function drawLineGraph(){
-			var data = google.visualization.arrayToDataTable([
-			  ['Month', 'Resolved'],
-			  ['Jan',  10],
-			  ['Feb',  11],
-			  ['Mar',  66],
-			  ['Apr',  56],
-			  ['May',  30],
-			  ['Jun',  14],
-			  ['Jul',  8],
-			  ['Aug',  17],
-			  ['Sep',  16],
-			  ['Oct',  26],
-			  ['Nov',  20],
-			  ['Dec',  23],
-			]);
-
-			var options = {
-			  title: 'Company Performance',
-			  legend: { position: 'bottom' },
-			  'width':600,
-			  'height':300
-			};
-
-			var chart = new google.visualization.LineChart(document.getElementById('line_chart'));
-
-			chart.draw(data, options);
-		  }
-
-		  function drawBarGraph() {
-			//var data =  google.visualization.arrayToDataTable([
-			//  ['Specialist', 'Job No',{role:'style'}],
-			//  ['John Smith', 10, 'color: #76A7FA'],
-			//  ['Dean Tean', 6, 'color: #76A7FA'],
-			//  ['Robert Maito', 14, 'color: #76A7FA'],
-			//  ['Pat Bright', 9, 'color: #76A7FA'],
-			//  ['Jack Jones', 3, 'color: #76A7FA'],
-			// ]);
-			
-			var data =  google.visualization.arrayToDataTable(bar_chart_data);
-			var options = {
-			  title: '',
-			  hAxis: {
-				title: 'Specialist',
-			  },
-			  vAxis: {
-				title: 'Number of job'
-			  },
-			  'width':1000,
-			  'height':450
-			};
-
-			var chart = new google.visualization.ColumnChart(document.getElementById('bar_chart'));
-
-			chart.draw(data, options);
-		}
-		*/
-	});
-	
-	
+			console.log(temp);
+	});	
     </script>
 </head>
 
 <body>
-
   <nav class="navbar navbar-default navbar-dark bg-d">
     <a class="navbar-brand" href="#">Make-It-All</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
