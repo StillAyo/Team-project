@@ -38,8 +38,8 @@ session_start();
 		else{
 			echo 'connected2';
 		}
-
-		$sql = "select * from personnel";
+		
+		$sql = "select job, site_id from personnel where id = $user_id";
 		$result = mysqli_query($conn, $sql);
 		// Fetch all
 		$test = mysqli_fetch_all($result, MYSQLI_ASSOC);
