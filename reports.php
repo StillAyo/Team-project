@@ -75,7 +75,21 @@
 			document.getElementById("in-progress-queries").innerHTML = queries_in_progress[0];
 			
 			var temp2 = JSON.parse('<?php echo $result_4?>');
+			var bar_chart_data = [];
+			for (x in temp2){
+				bar_chart_data.push([temp2[x]['type'], parseInt(temp2[x]['amount']),'color: #76A7FA']);
+			}
+			var headings_2 = ['Specialist', 'Job No',{role:'style'}];
+			bar_chart_data.splice(0,0,headings_2);
 			console.log(temp2);
+			
+			// Load the Visualization API and the corechart package.
+			  google.charts.load('current', {'packages':['corechart']});
+
+			  // Set a callback to run when the Google Visualization API is loaded.
+			  google.charts.setOnLoadCallback(drawPieChart);
+			  google.charts.setOnLoadCallback(drawLineGraph);
+			  google.charts.setOnLoadCallback(drawBarGraph);
 			
 			function drawPieChart(){
 				var data = google.visualization.arrayToDataTable(pie_chart_data);
