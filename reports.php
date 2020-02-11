@@ -54,7 +54,7 @@
 				$res = mysqli_query($conn, $sql_3);
 				$result_3 = json_encode(mysqli_fetch_all($res, MYSQLI_NUM));
 				
-				$sql_4 = "SELECT name, COUNT(problem_no) FROM live INNER JOIN personnel ON live.specialist_id = personnel.id GROUP BY name";
+				$sql_4 = "SELECT name, COUNT(problem_no) as amount FROM live INNER JOIN personnel ON live.specialist_id = personnel.id GROUP BY name";
 				$res = mysqli_query($conn, $sql_4);
 				$result_4 = json_encode(mysqli_fetch_all($res, MYSQLI_ASSOC));
 				
@@ -78,7 +78,7 @@
 			console.log(temp2);
 			var bar_chart_data = [];
 			for (x in temp2){
-				bar_chart_data.push([temp2[x]['type'], parseInt(temp2[x]['amount']),'color: #76A7FA']);
+				bar_chart_data.push([temp2[x]['name'], parseInt(temp2[x]['amount']),'color: #76A7FA']);
 			}
 			var headings_2 = ['Specialist', 'Job No',{role:'style'}];
 			bar_chart_data.splice(0,0,headings_2);
