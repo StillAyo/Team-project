@@ -81,7 +81,7 @@
 			}
 			var headings_2 = ['Specialist', 'Job No',{role:'style'}];
 			bar_chart_data.splice(0,0,headings_2);
-			console.log(temp2);
+			console.log(bar_chart_data);
 			
 			// Load the Visualization API and the corechart package.
 			  google.charts.load('current', {'packages':['corechart']});
