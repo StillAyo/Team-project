@@ -41,7 +41,7 @@
 					die("Connection failed: " . $conn->connect_error);
 				}
 				
-				$sql = "select * from personnel";
+				$sql = "SELECT type, COUNT(type) FROM live JOIN problem USING (problem_no) GROUP BY type";
 				$result = mysqli_query($conn, $sql);
 				// Fetch all
 				$test = json_encode(mysqli_fetch_all($result, MYSQLI_ASSOC));
