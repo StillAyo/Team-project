@@ -42,7 +42,7 @@ session_start();
 		$sql = "select job, site_id from personnel where id = $user_id";
 		$result = mysqli_query($conn, $sql);
 		// Fetch all
-		$test = mysqli_fetch_all($result, MYSQLI_ASSOC);
+		$test = mysqli_fetch_all($result, MYSQLI_NUM);
 
 		// Free result set
 		print_r($test);
