@@ -181,7 +181,7 @@
 						echo "Connected successfully";
 				}
 				
-				$sql="SELECT type, COUNT(type) FROM live JOIN problem USING (problem_no) GROUP BY type";
+				$sql="SELECT * FROM personnel";
 				$result = mysqli_query($conn, $sql);
 				// Fetch all
 				$test = mysqli_fetch_all($result);
