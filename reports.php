@@ -166,12 +166,15 @@
 <body>
 <?php
 				// include "database-credentials.php";
-				$host='localhost';
-				$dbName='team018';
-				$username = 'team018';
-				$password = 'SIpnz0Sjel';
+				echo "Working";
+				$servername = "localhost";
+				$username = "root";
+				$password = "SIpnz0Sjel";
+
 				// Create connection
 				$conn = mysqli_connect($servername, $username, $password, 'team018');
+
+				
 
 				// Check connection
 				if ($conn->connect_error) {
