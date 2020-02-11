@@ -34,18 +34,28 @@
 				$dbName='team018';
 				$username = 'team018';
 				$password = 'SIpnz0Sjel';
-				$dsn = "mysql://$username:$password@$host/$dbName"; 
-				require_once('MDB2.php');
-				
-				$db =& MDB2::connect($dsn); 
-				if(PEAR::isError($db)){ 
-					die($db->getMessage());
+				// Create connection
+				$conn = mysqli_connect($servername, $username, $password, 'team018');
+
+				// Check connection
+				if ($conn->connect_error) {
+					die("Connection failed: " . $conn->connect_error);
+				}
+				else{
+						echo "Connected successfully";
 				}
 				
 				$sql="SELECT type, COUNT(type) FROM live JOIN problem USING (problem_no) GROUP BY type";
+				$result = mysqli_query($conn, $sql);
+				// Fetch all
+				$test = mysqli_fetch_all($result);
+
+				// Free result set
+				print_r($test);
+				
 				
 						
-				$res =& $db->query($sql);
+				/* $res =& $db->query($sql);
 				$result = json_encode($res->fetchAll());
 			
 			
@@ -60,9 +70,10 @@
 				
 				$sql_4 = "SELECT name, COUNT(problem_no) FROM live INNER JOIN personnel ON live.specialist_id = personnel.id GROUP BY name";
 				$res =& $db->query($sql_4);
-				$result_4 = json_encode($res ->fetchAll());
+				$result_4 = json_encode($res ->fetchAll()); */
 
 			?>
+			/*
 		// Convert result from sql query into array, then send into google charts
 			function convertToArray(arrStr, headings){
 				//
@@ -108,15 +119,15 @@
 		  // instantiates the pie chart, passes in the data and
 		  // draws it.
 		  function drawPieChart() {
-			/* var data = google.visualization.arrayToDataTable([
-			  ['Problem type', 'Amount'],
-			  ['Microsoft Word 2013',     11],
-			  ['Software',      2],
-			  ['HP All-In-One Printer',  2],
-			  ['Lenovo laptop', 2],
-			  ['Python 3.6',    7]
-			]);
-			*/
+			 var data = google.visualization.arrayToDataTable([
+			//  ['Problem type', 'Amount'],
+			//  ['Microsoft Word 2013',     11],
+			//  ['Software',      2],
+			//  ['HP All-In-One Printer',  2],
+			//  ['Lenovo laptop', 2],
+			//  ['Python 3.6',    7]
+			//]);
+			
 			
 			var data = google.visualization.arrayToDataTable(pie_chart_data);
 
@@ -163,15 +174,15 @@
 		  }
 
 		  function drawBarGraph() {
-			/*var data =  google.visualization.arrayToDataTable([
-			  ['Specialist', 'Job No',{role:'style'}],
-			  ['John Smith', 10, 'color: #76A7FA'],
-			  ['Dean Tean', 6, 'color: #76A7FA'],
-			  ['Robert Maito', 14, 'color: #76A7FA'],
-			  ['Pat Bright', 9, 'color: #76A7FA'],
-			  ['Jack Jones', 3, 'color: #76A7FA'],
-			]);
-			*/
+			//var data =  google.visualization.arrayToDataTable([
+			//  ['Specialist', 'Job No',{role:'style'}],
+			//  ['John Smith', 10, 'color: #76A7FA'],
+			//  ['Dean Tean', 6, 'color: #76A7FA'],
+			//  ['Robert Maito', 14, 'color: #76A7FA'],
+			//  ['Pat Bright', 9, 'color: #76A7FA'],
+			//  ['Jack Jones', 3, 'color: #76A7FA'],
+			// ]);
+			
 			var data =  google.visualization.arrayToDataTable(bar_chart_data);
 			var options = {
 			  title: '',
@@ -189,7 +200,9 @@
 
 			chart.draw(data, options);
 		}
-	});	
+	});
+	*/
+	
     </script>
 </head>
 
