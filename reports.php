@@ -28,51 +28,7 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
 		$( document ).ready(function() {
-			<?php
-				// include "database-credentials.php";
-				$host='localhost';
-				$dbName='team018';
-				$username = 'team018';
-				$password = 'SIpnz0Sjel';
-				// Create connection
-				$conn = mysqli_connect($servername, $username, $password, 'team018');
-
-				// Check connection
-				if ($conn->connect_error) {
-					die("Connection failed: " . $conn->connect_error);
-				}
-				else{
-						echo "Connected successfully";
-				}
-				
-				$sql="SELECT type, COUNT(type) FROM live JOIN problem USING (problem_no) GROUP BY type";
-				$result = mysqli_query($conn, $sql);
-				// Fetch all
-				$test = mysqli_fetch_all($result);
-
-				// Free result set
-				print_r($test);
-				
-				
-						
-				/* $res =& $db->query($sql);
-				$result = json_encode($res->fetchAll());
 			
-			
-				$current_year = date("Y")-1;
-				$sql_2 = "SELECT count(problem_no) from resolved WHERE date BETWEEN '$current_year-01-01' and '$current_year-12-31'";
-				$res =& $db->query($sql_2);
-				$result_2 = json_encode($res ->fetchAll());
-				
-				$sql_3 = "SELECT count(problem_no) from live";
-				$res =& $db->query($sql_3);
-				$result_3 = json_encode($res ->fetchAll());
-				
-				$sql_4 = "SELECT name, COUNT(problem_no) FROM live INNER JOIN personnel ON live.specialist_id = personnel.id GROUP BY name";
-				$res =& $db->query($sql_4);
-				$result_4 = json_encode($res ->fetchAll()); */
-
-			?>
 			/*
 		// Convert result from sql query into array, then send into google charts
 			function convertToArray(arrStr, headings){
@@ -207,6 +163,51 @@
 </head>
 
 <body>
+<?php
+				// include "database-credentials.php";
+				$host='localhost';
+				$dbName='team018';
+				$username = 'team018';
+				$password = 'SIpnz0Sjel';
+				// Create connection
+				$conn = mysqli_connect($servername, $username, $password, 'team018');
+
+				// Check connection
+				if ($conn->connect_error) {
+					die("Connection failed: " . $conn->connect_error);
+				}
+				else{
+						echo "Connected successfully";
+				}
+				
+				$sql="SELECT type, COUNT(type) FROM live JOIN problem USING (problem_no) GROUP BY type";
+				$result = mysqli_query($conn, $sql);
+				// Fetch all
+				$test = mysqli_fetch_all($result);
+
+				// Free result set
+				print_r($test);
+				
+				
+						
+				/* $res =& $db->query($sql);
+				$result = json_encode($res->fetchAll());
+			
+			
+				$current_year = date("Y")-1;
+				$sql_2 = "SELECT count(problem_no) from resolved WHERE date BETWEEN '$current_year-01-01' and '$current_year-12-31'";
+				$res =& $db->query($sql_2);
+				$result_2 = json_encode($res ->fetchAll());
+				
+				$sql_3 = "SELECT count(problem_no) from live";
+				$res =& $db->query($sql_3);
+				$result_3 = json_encode($res ->fetchAll());
+				
+				$sql_4 = "SELECT name, COUNT(problem_no) FROM live INNER JOIN personnel ON live.specialist_id = personnel.id GROUP BY name";
+				$res =& $db->query($sql_4);
+				$result_4 = json_encode($res ->fetchAll()); */
+
+			?>
   <nav class="navbar navbar-default navbar-dark bg-d">
     <a class="navbar-brand" href="#">Make-It-All</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
