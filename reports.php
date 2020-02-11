@@ -39,13 +39,25 @@
 
 			
 
+			// Check connection
+			if ($conn->connect_error) {
+				die("Connection failed: " . $conn->connect_error);
+			}
+			else{
+					echo "Connected now <br/>";
+			}
 			
-			
-			
+			$sql="SELECT type, COUNT(type) FROM live JOIN problem USING (problem_no) GROUP BY type";
+			$result = mysqli_query($conn, $sql);
+			// Fetch all
+			$test = mysqli_fetch_all($result, MYSQLI_NUM);
+
+			// Free result set
 			
 			
 			?>
-			console.log(3);
+			var temp = '<?php print_r($test)?>';
+			console.log(temp);
 			/*
 		// Convert result from sql query into array, then send into google charts
 			function convertToArray(arrStr, headings){
@@ -204,7 +216,6 @@
 				$res =& $db->query($sql_4);
 				$result_4 = json_encode($res ->fetchAll()); 
 				*/
-
 			?>
   <nav class="navbar navbar-default navbar-dark bg-d">
     <a class="navbar-brand" href="#">Make-It-All</a>
