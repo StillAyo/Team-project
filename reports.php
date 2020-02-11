@@ -42,20 +42,50 @@
 				}
 				
 				$sql = "SELECT type, COUNT(type) as amount FROM live JOIN problem USING (problem_no) GROUP BY type";
-				$result = mysqli_query($conn, $sql);
-				// Fetch all
-				$test = json_encode(mysqli_fetch_all($result, MYSQLI_ASSOC));
+				$res = mysqli_query($conn, $sql);
+				$result = json_encode(mysqli_fetch_all($res, MYSQLI_ASSOC));
+				
+				$current_year = date("Y")-1;
+				$sql_2 = "SELECT count(problem_no) from resolved WHERE date BETWEEN '$current_year-01-01' and '$current_year-12-31'";
+				$res = mysqli_query($conn, $sql_2);
+				$result_2 = json_encode(mysqli_fetch_all($res, MYSQLI_ASSOC));
+				
+				$sql_3 = "SELECT count(problem_no) from live";
+				$res = mysqli_query($conn, $sql_3);
+				$result_3 = json_encode(mysqli_fetch_all($res, MYSQLI_NUM));
+				
+				$sql_4 = "SELECT name, COUNT(problem_no) FROM live INNER JOIN personnel ON live.specialist_id = personnel.id GROUP BY name";
+				$res = mysqli_query($conn, $sql_4);
+				$result_4 = json_encode(mysqli_fetch_all($res, MYSQLI_ASSOC));
+				
 				
 			?>
-			var temp = JSON.parse('<?php echo $test?>');
-			console.log(temp);
+			var temp = JSON.parse('<?php echo $result?>');
 			var pie_chart_data = [];
 			var headings = ['Problem type', 'Amount'];
 			for (x in temp){
 				pie_chart_data.push([temp[x]['type'], parseInt(temp[x]['amount'])]);
 			}
 			pie_chart_data.splice(0,0,headings);
-			console.log(pie_chart_data);
+			
+			var total_resolved_queries = JSON.parse('<?php echo $result_2?>');
+			console.log(total_resolved_queries);
+			
+			function drawPieChart() {
+			
+			var data = google.visualization.arrayToDataTable(pie_chart_data);
+
+			var options = {
+			  title: '',
+			  is3D: true,
+			  'width':400,
+			  'height':300
+			};
+
+			// Instantiate and draw our chart, passing in some options.
+			var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+			chart.draw(data, options);
+		  }
 	});	
     </script>
 </head>
