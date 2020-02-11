@@ -203,6 +203,7 @@
 				$sql_4 = "SELECT name, COUNT(problem_no) FROM live INNER JOIN personnel ON live.specialist_id = personnel.id GROUP BY name";
 				$res =& $db->query($sql_4);
 				$result_4 = json_encode($res ->fetchAll()); 
+				*/
 
 			?>
   <nav class="navbar navbar-default navbar-dark bg-d">
