@@ -16,7 +16,6 @@
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet"/>
   <!-- CSS Files -->
   <link rel="stylesheet" type="text/css" href="home.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"	crossorigin="anonymous">
   <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
   <link href="css/dashboard.css" rel="stylesheet">
 
