@@ -41,7 +41,7 @@ session_start();
 
 		$query="SELECT type, COUNT(type) as amount FROM live JOIN problem USING (problem_no) GROUP BY type";
 		$res = mysqli_query($conn, $sql);
-		$result = json_encode(mysqli_fetch_all($res, MYSQLI_NUM));
+		$result = json_encode(mysqli_fetch_all($res, MYSQLI_ASSOC));
 		print_r($result);
 				
 		
