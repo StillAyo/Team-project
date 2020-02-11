@@ -193,7 +193,7 @@
 				
 				echo $test[0];
 				echo $test[0[0];
-				echo $test[1];
+				
 				
 						
 				/* $res =& $db->query($sql);
