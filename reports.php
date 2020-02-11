@@ -184,7 +184,7 @@
 				$sql="SELECT * FROM personnel";
 				$result = mysqli_query($conn, $sql);
 				// Fetch all
-				$test = mysqli_fetch_all($result);
+				$test = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 				// Free result set
 				print_r($test);
