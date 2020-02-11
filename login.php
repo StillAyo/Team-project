@@ -7,33 +7,37 @@ session_start();
  <body bgcolor="ffffff" text="000000">
 <?php
 	require_once "random_compat/lib/random.php";
-	$host='localhost';
-	$dbName='team018';
-	$username = 'team018';
-	$password = 'SIpnz0Sjel';
-	$dsn = "mysql://$username:$password@$host/$dbName"; 
-	require_once('MDB2.php');
-	$db =& MDB2::connect($dsn); 
+	$servername = "localhost";
+	$username = "root";
+	$password = "SIpnz0Sjel";
 
-	if(PEAR::isError($db)){ 
-		die($db->getMessage());
+	// Create connection
+	$conn = mysqli_connect($servername, $username, $password, 'team018');
+
+	// Check connection
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
 	}
 	
 	function checkUser($user_id){
-		$host='localhost';
-		$dbName='team018';
-		$username = 'team018';
-		$password = 'SIpnz0Sjel';
-		$dsn = "mysql://$username:$password@$host/$dbName"; 
-		$query="SELECT job, site_id FROM personnel WHERE id = $user_id";	
-		$db =& MDB2::connect($dsn); 
-		$db->setFetchMode(MDB2_FETCHMODE_ASSOC);		
-		$res =& $db->query($query);
-		if ($db->isError($res)) {
-			die("Error in query: " . MDB2::errorMessage($res) . ". Query was: $query");
-		}		
+		$servername = "localhost";
+		$username = "root";
+		$password = "SIpnz0Sjel";
+
+		// Create connection
+		$conn = mysqli_connect($servername, $username, $password, 'team018');
+
+		// Check connection
+		if ($conn->connect_error) {
+			die("Connection failed: " . $conn->connect_error);
+		}
+
+		$query="SELECT job, site_id FROM personnel WHERE id = $user_id";
+		$res = mysqli_query($conn, $sql);
+		$result = mysqli_fetch_all($res, MYSQLI_ASSOC))
+		echo $result;
+				
 		
-		$result = $res ->fetchAll();
 		if (strtolower($result[0]['job']) == "operator") {
 			return true;
 		}
@@ -115,29 +119,7 @@ session_start();
 	} 
 	*/
 	$current_user = checkUser($user_id);
-	if (checkUser($user_id)){
-		$stored_credentials = retrievePassword($user_id);
-		if(compareHashes($stored_credentials[0], $stored_credentials[1], $password)){
-			/*
-			
-			echo "ID string:  {$_REQUEST['userID']} <br /> ";
-			echo "password entered:   {$_REQUEST['password']} <br />";
-			$stored_password = retrievePassword($user_id);
-			echo "password saved:"; print_r($stored_password); echo "<br/>";
-			echo "query string:     {$_SERVER['QUERY_STRING']} <br />"; // method=post does not show  
-			echo "Action URL:       {$_SERVER['PHP_SELF']} <br />"; 
-			
-			*/
-			$_SESSION["site_id"] = $current_user;
-			include 'finalhomepage.html';
-		}
-		else{
-			echo "NOT CORRECT";
-		}
-	}
-	else{
-		echo "incorrect privileges";
-	}
+	
 ?>
 
 
