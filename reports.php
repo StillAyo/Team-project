@@ -47,8 +47,11 @@
 				$test = json_encode(mysqli_fetch_all($result, MYSQLI_ASSOC));
 				
 			?>
-			var temp = JSON.parse("<?php echo $test?>");
+			var temp = JSON.parse('<?php echo $test?>');
 			console.log(temp);
+			var pie_chart_data = [];
+			var headings = ['Problem type', 'Amount'];
+			
 	});	
     </script>
 </head>
