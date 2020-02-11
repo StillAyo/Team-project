@@ -28,7 +28,40 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
 		$( document ).ready(function() {
+			<?php
+			$servername = "localhost";
+			$username = "root";
+			$password = "SIpnz0Sjel";
+
+			// Create connection
+			$conn = mysqli_connect($servername, $username, $password, 'team018');
+
 			
+
+			// Check connection
+			if ($conn->connect_error) {
+				die("Connection failed: " . $conn->connect_error);
+			}
+			else{
+					echo "Connected now <br/>";
+			}
+			
+			$sql="SELECT type, COUNT(type) FROM live JOIN problem USING (problem_no) GROUP BY type";
+			$result = mysqli_query($conn, $sql);
+			// Fetch all
+			$test = mysqli_fetch_all($result, MYSQLI_NUM);
+
+			// Free result set
+			
+			echo $test[0][0];
+			print_r($test);
+			?>
+			var $temp = '<?php echo $result?>';
+			var pie_chart_data=[];
+			var headings = ['Problem type', 'Amount'];
+			for (x in result[0]){
+				console.log(x);
+			}
 			/*
 		// Convert result from sql query into array, then send into google charts
 			function convertToArray(arrStr, headings){
@@ -167,32 +200,7 @@
 <?php
 				// include "database-credentials.php";
 				echo "Working";
-				$servername = "localhost";
-				$username = "root";
-				$password = "SIpnz0Sjel";
-
-				// Create connection
-				$conn = mysqli_connect($servername, $username, $password, 'team018');
-
 				
-
-				// Check connection
-				if ($conn->connect_error) {
-					die("Connection failed: " . $conn->connect_error);
-				}
-				else{
-						echo "Connected now <br/>";
-				}
-				
-				$sql="SELECT type, COUNT(type) FROM live JOIN problem USING (problem_no) GROUP BY type";
-				$result = mysqli_query($conn, $sql);
-				// Fetch all
-				$test = mysqli_fetch_all($result, MYSQLI_NUM);
-
-				// Free result set
-				
-				echo $test[0][0];
-				print_r($test);
 				
 						
 				/* $res =& $db->query($sql);
