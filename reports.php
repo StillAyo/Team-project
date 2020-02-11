@@ -41,11 +41,7 @@
 				die("Connection failed: " . $conn->connect_error);
 				$testing = "no";
 			}
-			else{
-					echo "Connected successfully";
-					$testing = "hi";
-					echo $testing;
-			}
+			
 
 			// Check connection
 			
