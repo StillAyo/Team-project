@@ -19,6 +19,10 @@ session_start();
 		die("Connection failed: " . $conn->connect_error);
 	}
 	
+	else {
+		echo "connected";
+	}
+	
 	function checkUser($user_id){
 		$servername = "localhost";
 		$username = "root";
@@ -118,7 +122,8 @@ session_start();
 		
 	} 
 	*/
-	/* $current_user = checkUser($user_id);
+	$current_user = checkUser($user_id);
+	/*
 	if (checkUser($user_id)){
 		$stored_credentials = retrievePassword($user_id);
 		if(compareHashes($stored_credentials[0], $stored_credentials[1], $password)){
