@@ -40,9 +40,9 @@ session_start();
 		}
 
 		$query="SELECT * FROM personnel";
-		/* $res = mysqli_query($conn, $sql);
+		$res = mysqli_query($conn, $sql);
 		$result = mysqli_fetch_all($res, MYSQLI_ASSOC))
-		echo $result; */
+		echo $result;
 				
 		
 		
