@@ -69,23 +69,84 @@
 			pie_chart_data.splice(0,0,headings);
 			
 			var total_resolved_queries = JSON.parse('<?php echo $result_2?>');
-			console.log(total_resolved_queries);
+			document.getElementById("resolved-queries").innerHTML = total_resolved_queries[0];
 			
-			function drawPieChart() {
+			var queries_in_progress = JSON.parse('<?php echo $result_3?>');
+			document.getElementById("in-progress-queries").innerHTML = queries_in_progress[0];
 			
-			var data = google.visualization.arrayToDataTable(pie_chart_data);
+			var temp2 = JSON.parse('<?php echo $result_4?>');
+			console.log(temp2);
+			
+			function drawPieChart(){
+				var data = google.visualization.arrayToDataTable(pie_chart_data);
 
-			var options = {
-			  title: '',
-			  is3D: true,
-			  'width':400,
-			  'height':300
-			};
+				var options = {
+				  title: '',
+				  is3D: true,
+				  'width':400,
+				  'height':300
+				};
 
-			// Instantiate and draw our chart, passing in some options.
-			var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-			chart.draw(data, options);
+				// Instantiate and draw our chart, passing in some options.
+				var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+				chart.draw(data, options);
+			}
+			function drawLineGraph(){
+
+				var data = google.visualization.arrayToDataTable([
+				  ['Month', 'Resolved'],
+				  ['Jan',  10],
+				  ['Feb',  11],
+				  ['Mar',  66],
+				  ['Apr',  56],
+				  ['May',  30],
+				  ['Jun',  14],
+				  ['Jul',  8],
+				  ['Aug',  17],
+				  ['Sep',  16],
+				  ['Oct',  26],
+				  ['Nov',  20],
+				  ['Dec',  23],
+				]);
+
+				var options = {
+				  title: 'Company Performance',
+				  legend: { position: 'bottom' },
+				  'width':600,
+				  'height':300
+				};
+
+				var chart = new google.visualization.LineChart(document.getElementById('line_chart'));
+
+				chart.draw(data, options);
 		  }
+			function drawBarGraph() {
+				/*var data =  google.visualization.arrayToDataTable([
+				  ['Specialist', 'Job No',{role:'style'}],
+				  ['John Smith', 10, 'color: #76A7FA'],
+				  ['Dean Tean', 6, 'color: #76A7FA'],
+				  ['Robert Maito', 14, 'color: #76A7FA'],
+				  ['Pat Bright', 9, 'color: #76A7FA'],
+				  ['Jack Jones', 3, 'color: #76A7FA'],
+				]);
+				*/
+				var data =  google.visualization.arrayToDataTable(bar_chart_data);
+				var options = {
+				  title: '',
+				  hAxis: {
+					title: 'Specialist',
+				  },
+				  vAxis: {
+					title: 'Number of job'
+				  },
+				  'width':1000,
+				  'height':450
+				};
+
+				var chart = new google.visualization.ColumnChart(document.getElementById('bar_chart'));
+
+				chart.draw(data, options);
+			}
 	});	
     </script>
 </head>
