@@ -90,7 +90,7 @@ session_start();
 	} */
 	$user_id = $_REQUEST['userID'];
 	$password = $_REQUEST['password'];
-	
+	echo $user_id;
 	
 	$id_array = array("11111", "1234", "22222", "33333", "34544", "5678", "9011", "9453");
 	
