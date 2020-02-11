@@ -26,7 +26,10 @@
 
   <!--Load the API-->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-	<?php
+	
+    <script type="text/javascript">
+		$( document ).ready(function() {
+			<?php
 			$servername = "localhost";
 			$username = "root";
 			$password = "SIpnz0Sjel";
@@ -56,8 +59,6 @@
 			
 			
 	?>
-    <script type="text/javascript">
-		$( document ).ready(function() {
 			
 			var temp = 'hello';
 			console.log(temp);
