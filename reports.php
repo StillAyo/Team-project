@@ -29,7 +29,6 @@
     <script type="text/javascript">
 		$( document ).ready(function() {
 			<?php
-			
 			$servername = "localhost";
 			$username = "root";
 			$password = "SIpnz0Sjel";
@@ -40,22 +39,18 @@
 			
 
 			// Check connection
-			if ($conn->connect_error) {
-				die("Connection failed: " . $conn->connect_error);
-			}
-			else{
-				echo "Connected now <br/>";
-				echo 'working';
-			}
 			
-			
-			
+			$sql="SELECT type, COUNT(type) FROM live JOIN problem USING (problem_no) GROUP BY type";
+			$result = mysqli_query($conn, $sql);
+			// Fetch all
+			$test = mysqli_fetch_all($result, MYSQLI_NUM);
 
 			// Free result set
 			
 			
 			?>
-			
+			var temp = '<?php print_r($test)?>';
+			console.log(temp);
 			/*
 		// Convert result from sql query into array, then send into google charts
 			function convertToArray(arrStr, headings){
@@ -193,7 +188,7 @@
 <body>
 <?php
 				// include "database-credentials.php";
-				
+				echo "Working";
 				
 				
 						
@@ -212,7 +207,8 @@
 				
 				$sql_4 = "SELECT name, COUNT(problem_no) FROM live INNER JOIN personnel ON live.specialist_id = personnel.id GROUP BY name";
 				$res =& $db->query($sql_4);
-				$result_4 = json_encode($res ->fetchAll()); 
+				
+				$result_4 = json_encode($res ->fetchAll());
 				*/
 			?>
   <nav class="navbar navbar-default navbar-dark bg-d">
