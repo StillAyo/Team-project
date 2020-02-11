@@ -57,11 +57,7 @@
 			print_r($test);
 			?>
 			var temp = '<?php print_r($test)?>';
-			var pie_chart_data=[];
-			var headings = ['Problem type', 'Amount'];
-			for (x in temp[0]){
-				console.log(x);
-			}
+			console.log(temp);
 			/*
 		// Convert result from sql query into array, then send into google charts
 			function convertToArray(arrStr, headings){
