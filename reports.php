@@ -156,8 +156,9 @@
 
 			chart.draw(data, options);
 		}
+		*/
 	});
-	*/
+	
 	
     </script>
 </head>
