@@ -184,9 +184,8 @@
 						echo "Connected now <br/>";
 				}
 				
-				sql= "SELECT * from personnel";
+				$sql="SELECT * FROM personnel";
 				$result = mysqli_query($conn, $sql);
-				echo("Error description: " . mysqli_error($conn));
 				// Fetch all
 				$test = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
