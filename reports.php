@@ -47,7 +47,7 @@
 				$test = json_encode(mysqli_fetch_all($result, MYSQLI_ASSOC));
 				
 			?>
-			var temp = JSON.parse('<?php echo $result?>');
+			var temp = JSON.parse("<?php echo $test?>");
 			console.log(temp);
 	});	
     </script>
