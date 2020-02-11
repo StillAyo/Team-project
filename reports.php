@@ -29,7 +29,7 @@
     <script type="text/javascript">
 		$( document ).ready(function() {
 			<?php
-			echo 'working';
+			
 			$servername = "localhost";
 			$username = "root";
 			$password = "SIpnz0Sjel";
@@ -44,7 +44,8 @@
 				die("Connection failed: " . $conn->connect_error);
 			}
 			else{
-					echo "Connected now <br/>";
+				echo "Connected now <br/>";
+				echo 'working';
 			}
 			
 			
