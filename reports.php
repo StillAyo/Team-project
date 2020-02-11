@@ -57,8 +57,7 @@
 			echo $test[0][0];
 			print_r($test);
 			?>
-			var temp = '<?php print_r($test)?>';
-			console.log(temp);
+			
 			/*
 		// Convert result from sql query into array, then send into google charts
 			function convertToArray(arrStr, headings){
