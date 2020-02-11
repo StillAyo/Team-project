@@ -35,20 +35,17 @@ session_start();
 		if ($conn->connect_error) {
 			die("Connection failed: " . $conn->connect_error);
 		}
+		else{
+			echo 'connected2';
+		}
 
-		$query="SELECT job, site_id FROM personnel WHERE id = $user_id";
+		$query="SELECT * FROM personnel";
 		$res = mysqli_query($conn, $sql);
 		$result = mysqli_fetch_all($res, MYSQLI_ASSOC))
 		echo $result;
 				
 		
-		if (strtolower($result[0]['job']) == "operator") {
-			return true;
-		}
-		else{
-			return false;
-		}
-		return $result[0]['site_id'];
+		
 		
 	}
 	/* function hashPassword($plaintext_password){
