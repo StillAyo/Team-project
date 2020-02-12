@@ -116,20 +116,20 @@ button:hover {
 					$conn = mysqli_connect($servername, $username, $password, 'team018');
 
 					// Check connection
-					/* if ($conn->connect_error) {
+					if ($conn->connect_error) {
 						die("Connection failed: " . $conn->connect_error);
 					}
 					else{
 							echo "Connected successfully";
-					} */
+					}
                     
                     
-                    $sql="select * from problem_type";
+                    /* $sql="select * from problem_type";
                     $res = mysqli_query($conn, $sql);
 					// Fetch all
 					$result = mysqli_fetch_all($res, MYSQLI_ASSOC);
 					print_r($result);
-
+ */
                     /*Populate drop down menu with types from database
                     while($row = $res->fetchRow()) {
                       echo "<option value=".$row[0].">" . $row[0] . "</option>"; 
