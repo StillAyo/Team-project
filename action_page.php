@@ -29,20 +29,6 @@ body {
 }
 
 
-button {
-  background-color: #00e1f1;
-  color: #ffffff;
-  border: none;
-  padding: 10px 20px;
-  font-size: 17px;
-  font-family: Raleway;
-  cursor: pointer;
-}
-
-button:hover {
-  opacity: 0.8;
-}
-
 </style>
 <title>Log Call</title>
 <body>
@@ -72,13 +58,7 @@ button:hover {
 	'$fields_values[2]','$fields_values[3]')";
 		
 	
-	if (mysqli_query($conn, $sql)) {
-		echo "New record created successfully";
-	} else {
-		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-	}
-	
-		// Fetch all
+
 	
 
 	// $types = array('integer','integer', 'text', 'text'); //Data types of values

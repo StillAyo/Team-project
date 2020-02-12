@@ -31,13 +31,6 @@ session_start();
 		// Create connection
 		$conn = mysqli_connect($servername, $username, $password, 'team018');
 
-		// Check connection
-		if ($conn->connect_error) {
-			die("Connection failed: " . $conn->connect_error);
-		}
-		else{
-			echo 'connected2';
-		}
 		
 		$sql = "select job, site_id from personnel where id = $user_id";
 		$res = mysqli_query($conn, $sql);
