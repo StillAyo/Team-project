@@ -53,9 +53,8 @@ session_start();
 		else{
 			return false;
 		}
-		return $result[0]['site_id'];
 	}
-	/* function hashPassword($plaintext_password){
+	 function hashPassword($plaintext_password){
 		$hashed_password = hash("sha256", $plaintext_password);
 		return $hashed_password;
 	}
@@ -66,19 +65,25 @@ session_start();
 	}
 	
 	function retrievePassword($user_id){
-		$host='localhost';
-		$dbName='team018';
-		$username = 'team018';
-		$password = 'SIpnz0Sjel';
-		$dsn = "mysql://$username:$password@$host/$dbName"; 
-		$query="SELECT salt, password_hash FROM personnel WHERE id = $user_id";	
-		$db =& MDB2::connect($dsn); 
-		$db->setFetchMode(MDB2_FETCHMODE_ASSOC);		
-		$res =& $db->query($query);
-		if ($db->isError($res)) {
-			die("Error in query: " . MDB2::errorMessage($res) . ". Query was: $query");
-		}		
-		$result = $res ->fetchAll();
+		$servername = "localhost";
+		$username = "root";
+		$password = "SIpnz0Sjel";
+
+		// Create connection
+		$conn = mysqli_connect($servername, $username, $password, 'team018');
+
+		// Check connection
+		if ($conn->connect_error) {
+			die("Connection failed: " . $conn->connect_error);
+		}
+		else{
+			echo 'connected2';
+		}
+		$sql = "select salt, password_hash from personnel where id = $user_id";
+		$res = mysqli_query($conn, $sql);
+		// Fetch all
+		$result = mysqli_fetch_all($res, MYSQLI_ASSOC);
+		echo $result;
 		
 		
 		$stored_salt_and_hash = array($result[0]['salt'],$result[0]['password_hash']);
@@ -94,7 +99,7 @@ session_start();
 		else{
 			return false;
 		}
-	} */
+	} 
 	$user_id = $_REQUEST['userID'];
 	$password = $_REQUEST['password'];
 	
@@ -104,25 +109,9 @@ session_start();
 	
 	
 	
-	/*		
-	foreach($id_array as $id){
-		$hashedPassword = hashPassword("testing");
-		$salt = generateSalt();
-		$secure_password = $salt.$hashedPassword;
-		$values = array($secure_password, $id);
-		
-		$query = "UPDATE personnel SET password = '$secure_password', salt = '$salt' WHERE id = '$id' ";
-		$result = $db->query($query);
-		if ($db->isError($result)) {
-			die("Error in query: " . MDB2::errorMessage($result) . ". Query was: $query");
-		}
 
-		// get number of affected rows
-		
-	} 
-	*/
 	$current_user = checkUser($user_id);
-	/*
+	
 	if (checkUser($user_id)){
 		$stored_credentials = retrievePassword($user_id);
 		if(compareHashes($stored_credentials[0], $stored_credentials[1], $password)){
@@ -134,10 +123,11 @@ session_start();
 			echo "password saved:"; print_r($stored_password); echo "<br/>";
 			echo "query string:     {$_SERVER['QUERY_STRING']} <br />"; // method=post does not show  
 			echo "Action URL:       {$_SERVER['PHP_SELF']} <br />"; 
-			
+			*/
 			
 			$_SESSION["site_id"] = $current_user;
-			include 'finalhomepage.html';
+			echo "WORKS";
+			// include 'finalhomepage.html';
 		}
 		else{
 			echo "NOT CORRECT";
@@ -146,7 +136,7 @@ session_start();
 	else{
 		echo "incorrect privileges";
 	}
-	*/
+	
 ?>
 
 
