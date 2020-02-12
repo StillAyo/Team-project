@@ -46,29 +46,34 @@ button:hover {
 
 <?php
 	$servername = "localhost";
-$username = "root";
-$password = "SIpnz0Sjel";
+	$username = "root";
+	$password = "SIpnz0Sjel";
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, 'team018');
+	// Create connection
+	$conn = mysqli_connect($servername, $username, $password, 'team018');
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-else{
-        echo "Connected successfully";
-}
-	/* $sql = "insert into call_log (callerid, operatorid, time, reason) VALUES($fields_values[0], $fields_values[1],
+	// Check connection
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+	}
+	else{
+			echo "Connected successfully";
+	}
+	$sql = "insert into call_log (callerid, operatorid, time, reason) VALUES($fields_values[0], $fields_values[1],
 	$fields_values[2],$fields_values[3]";
 	
+	$sql = "select * from call_log where callerid = $fields_values[0]";
+	$res = mysqli_query($conn, $sql);
+		// Fetch all
+	$result = mysqli_fetch_all($res, MYSQLI_ASSOC);
+	echo $result;
 	
 	if (mysqli_query($conn, $sql)) {
 		echo "New record created successfully";
 	} else {
 		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 	}
- */
+
 	// $fields_values = array( intval($_GET["caller_id"]), 1 ,$_GET["date"]." ".$_GET["time"] ,$_GET["reason"] );  //Inputs from form 
 
 	// $types = array('integer','integer', 'text', 'text'); //Data types of values
