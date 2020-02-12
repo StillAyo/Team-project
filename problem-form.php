@@ -49,23 +49,7 @@ input.invalid {
   background-color: #ffdddd;
 }
 
-button {
-  background-color: #00e1f1;
-  color: #ffffff;
-  border: none;
-  padding: 10px 20px;
-  font-size: 17px;
-  font-family: Raleway;
-  cursor: pointer;
-}
 
-button:hover {
-  opacity: 0.8;
-}
-
-#prevBtn {
-  background-color: #bbbbbb;
-}
 </style>
 
 <body>
