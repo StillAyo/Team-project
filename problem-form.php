@@ -118,13 +118,13 @@ button:hover {
                     $sql="select * from problem_type";
                     $res = mysqli_query($conn, $sql);
 					// Fetch all
-					$result = mysqli_fetch_all($res, MYSQLI_ASSOC);
-					print_r($result);
+					/* $result = mysqli_fetch_all($res, MYSQLI_ASSOC);
+					print_r($result); */
 					
 					if (mysqli_num_rows($res) > 0) {
 						// output data of each row
 						while($row = mysqli_fetch_assoc($res)) {
-							echo "id: " . $row["type"] "<br>";
+							echo $row;
 						}
 					} else {
 						echo "0 results";
