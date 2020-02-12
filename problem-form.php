@@ -121,10 +121,7 @@ button:hover {
 					$result = mysqli_fetch_all($res, MYSQLI_ASSOC);
 					print_r($result);
 
-                    Populate drop down menu with types from database
-                    while($row = $res->fetchRow()) {
-                      echo "<option value=".$row[0].">" . $row[0] . "</option>"; 
-                    }
+                    
                     ?>
 <form id="regForm" action="assign_specialist.php" method="get">  
   <h1>Problem log:</h1>
