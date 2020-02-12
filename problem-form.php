@@ -124,7 +124,7 @@ button:hover {
 					if (mysqli_num_rows($res) > 0) {
 						// output data of each row
 						while($row = mysqli_fetch_assoc($res)) {
-							echo $row;
+							echo $row['type'];
 						}
 					} else {
 						echo "0 results";
