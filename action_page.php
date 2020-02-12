@@ -46,23 +46,31 @@ button:hover {
 
 <?php
 // Once you have a valid DB object named $db...
-require_once 'MDB2.php';
-include "database-credentials.php";
-$host='localhost';
-$dbName='team018';
-$dsn = "mysql://$username:$password@$host/$dbName"; 
+	$servername = "localhost";
+	$username = "root";
+	$password = "SIpnz0Sjel";
 
-$mdb2 =& MDB2::connect($dsn); 
-if(PEAR::isError($mdb2)){ 
-    die($mdb2->getMessage());
-}
+	// Create connection
+	$conn = mysqli_connect($servername, $username, $password, 'team018');
 
-$fields_values = array( intval($_GET["caller_id"]), 1 ,$_GET["date"]." ".$_GET["time"] ,$_GET["reason"] );  //Inputs from form 
 
-$types = array('integer','integer', 'text', 'text'); //Data types of values
-$sth = $mdb2->prepare('INSERT INTO call_log (callerid, operatorid, time, reason)VALUES (?, ?, ?, ?)', $types, MDB2_PREPARE_MANIP); //Sql prepare statement
+	
+	$sql = "insert into call_log (callerid, operatorid, time, reason) VALUES($fields_values[0], $fields_values[1],
+	$fields_values[2],$fields_values[3]";
+	
+	
+	if (mysqli_query($conn, $sql)) {
+		echo "New record created successfully";
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	}
 
-$affectedRows = $sth->execute($fields_values); //Sql execute
+	// $fields_values = array( intval($_GET["caller_id"]), 1 ,$_GET["date"]." ".$_GET["time"] ,$_GET["reason"] );  //Inputs from form 
+
+	// $types = array('integer','integer', 'text', 'text'); //Data types of values
+	// $sth = $mdb2->prepare('INSERT INTO call_log (callerid, operatorid, time, reason)VALUES (?, ?, ?, ?)', $types, MDB2_PREPARE_MANIP); //Sql prepare statement
+
+	// $affectedRows = $sth->execute($fields_values); //Sql execute
 ?> 
 
    <!-- NAVBAR -->
