@@ -121,9 +121,9 @@ button:hover {
 					$result = mysqli_fetch_all($res, MYSQLI_ASSOC);
 					print_r($result);
 					
-					if (mysqli_num_rows($result) > 0) {
+					if (mysqli_num_rows($res) > 0) {
 						// output data of each row
-						while($row = mysqli_fetch_assoc($result)) {
+						while($row = mysqli_fetch_assoc($res)) {
 							echo "id: " . $row["type"] "<br>";
 						}
 					} else {
