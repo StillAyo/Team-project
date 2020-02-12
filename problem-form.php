@@ -98,16 +98,7 @@ button:hover {
     </div>
   </nav>
 <!-- END NAVBAR -->
-
-<form id="regForm" action="assign_specialist.php" method="get">  
-  <h1>Problem log:</h1>
-  <div class="tab">
-    <div align="center">
-        <div style="display: inline-block; text-align: left;">
-            <p>Type:</p>
-            <p>
-                <select name="type" style="width:200px">
-                    <?php
+<?php
                     $servername = "localhost";
 					$username = "root";
 					$password = "SIpnz0Sjel";
@@ -116,25 +107,61 @@ button:hover {
 					$conn = mysqli_connect($servername, $username, $password, 'team018');
 
 					// Check connection
-					if ($conn->connect_error) {
+					 if ($conn->connect_error) {
 						die("Connection failed: " . $conn->connect_error);
 					}
 					else{
 							echo "Connected successfully";
-					}
+					} 
                     
                     
-                    /* $sql="select * from problem_type";
+                    $sql="select * from problem_type";
                     $res = mysqli_query($conn, $sql);
 					// Fetch all
 					$result = mysqli_fetch_all($res, MYSQLI_ASSOC);
 					print_r($result);
- */
-                    /*Populate drop down menu with types from database
+
+                    Populate drop down menu with types from database
                     while($row = $res->fetchRow()) {
                       echo "<option value=".$row[0].">" . $row[0] . "</option>"; 
-                    }*/
+                    }
                     ?>
+<form id="regForm" action="assign_specialist.php" method="get">  
+  <h1>Problem log:</h1>
+  <div class="tab">
+    <div align="center">
+        <div style="display: inline-block; text-align: left;">
+            <p>Type:</p>
+            <p>
+                <select name="type" style="width:200px">
+                    /* <?php
+                    $servername = "localhost";
+					$username = "root";
+					$password = "SIpnz0Sjel";
+
+					// Create connection
+					$conn = mysqli_connect($servername, $username, $password, 'team018');
+
+					// Check connection
+					 if ($conn->connect_error) {
+						die("Connection failed: " . $conn->connect_error);
+					}
+					else{
+							echo "Connected successfully";
+					} 
+                    
+                    
+                    $sql="select * from problem_type";
+                    $res = mysqli_query($conn, $sql);
+					// Fetch all
+					$result = mysqli_fetch_all($res, MYSQLI_ASSOC);
+					print_r($result);
+
+                    Populate drop down menu with types from database
+                    while($row = $res->fetchRow()) {
+                      echo "<option value=".$row[0].">" . $row[0] . "</option>"; 
+                    }
+                    ?> */
                 </select>
             </p>
             <p><input placeholder="Serial Number.." oninput="this.className = ''" name="serial_no" style="width:200px"></p>
