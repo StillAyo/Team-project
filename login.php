@@ -31,21 +31,14 @@ session_start();
 		// Create connection
 		$conn = mysqli_connect($servername, $username, $password, 'team018');
 
-		// Check connection
-		if ($conn->connect_error) {
-			die("Connection failed: " . $conn->connect_error);
-		}
-		else{
-			echo 'connected2';
-		}
+	
 		
 		$sql = "select job, site_id from personnel where id = $user_id";
 		$res = mysqli_query($conn, $sql);
 		// Fetch all
 		$result = mysqli_fetch_all($res, MYSQLI_ASSOC);
 
-		// Free result set
-		print_r($result);
+		
 		
 		if (strtolower($result[0]['job']) == "operator") {
 			return true;
@@ -72,19 +65,11 @@ session_start();
 		// Create connection
 		$conn = mysqli_connect($servername, $username, $password, 'team018');
 
-		// Check connection
-		if ($conn->connect_error) {
-			die("Connection failed: " . $conn->connect_error);
-		}
-		else{
-			echo 'connected2';
-		}
+	
 		$sql = "select salt, password_hash from personnel where id = $user_id";
 		$res = mysqli_query($conn, $sql);
 		// Fetch all
-		$result = mysqli_fetch_all($res, MYSQLI_ASSOC);
-		echo $result;
-		
+		$result = mysqli_fetch_all($res, MYSQLI_ASSOC);		
 		
 		$stored_salt_and_hash = array($result[0]['salt'],$result[0]['password_hash']);
 		
@@ -126,8 +111,7 @@ session_start();
 			*/
 			
 			$_SESSION["site_id"] = $current_user;
-			echo "WORKS";
-			// include 'finalhomepage.html';
+			include 'finalhomepage.html';
 		}
 		else{
 			echo "NOT CORRECT";
