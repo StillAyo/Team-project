@@ -59,6 +59,9 @@ button:hover {
 	else{
 			echo "Connected successfully";
 	}
+	
+	$fields_values = array( intval($_GET["caller_id"]), 1 ,$_GET["date"]." ".$_GET["time"] ,$_GET["reason"] );  //Inputs from form 
+
 	$sql = "insert into call_log (callerid, operatorid, time, reason) VALUES($fields_values[0], $fields_values[1],
 	$fields_values[2],$fields_values[3]";
 	
@@ -74,7 +77,6 @@ button:hover {
 		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 	}
 
-	// $fields_values = array( intval($_GET["caller_id"]), 1 ,$_GET["date"]." ".$_GET["time"] ,$_GET["reason"] );  //Inputs from form 
 
 	// $types = array('integer','integer', 'text', 'text'); //Data types of values
 	// $sth = $mdb2->prepare('INSERT INTO call_log (callerid, operatorid, time, reason)VALUES (?, ?, ?, ?)', $types, MDB2_PREPARE_MANIP); //Sql prepare statement
