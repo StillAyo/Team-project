@@ -72,7 +72,6 @@ button:hover {
 		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 	}
 	
-	$res = mysqli_query($conn, $sql);
 		// Fetch all
 	
 

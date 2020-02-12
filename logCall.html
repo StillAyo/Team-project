@@ -137,8 +137,8 @@ button:hover {
 
   <div class="tab">Call Info:
     <p><input placeholder="Reason for call..." oninput="this.className = ''" name="reason"></p>
-    <p>Date: <input type='date' name="date" style="width: 200px;"></p>
-    <p>Time: <input type='time' name="time" style="width: 200px;"></p>
+    <p><input type='date' id="datePicker" name="date" style="width: 200px;"></p>
+    <p><input type='time' id="timePicker" name="time" style="width: 200px;"></p>
   </div>
   <div style="overflow:auto;">
     <div style="float:right;">
@@ -246,7 +246,10 @@ function showUser(str) {
   xmlhttp.open("GET","getuser.php?q="+str,true);
   xmlhttp.send();
 }
-
+document.getElementById('datePicker').valueAsDate = new Date(); //Default Date
+var d = new Date();
+d.setSeconds(0,0);
+document.getElementById('timePicker').valueAsDate = d; //Default Time
 </script>
 
 </body>
