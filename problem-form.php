@@ -120,7 +120,18 @@ button:hover {
 					// Fetch all
 					$result = mysqli_fetch_all($res, MYSQLI_ASSOC);
 					print_r($result);
-
+					
+					if (mysqli_num_rows($result) > 0) {
+						// output data of each row
+						while($row = mysqli_fetch_assoc($result)) {
+							echo "id: " . $row["type"] "<br>";
+						}
+					} else {
+						echo "0 results";
+					}
+                   /*  while($row = $res->fetchRow()) {
+                      echo "<option value=".$row[0].">" . $row[0] . "</option>"; 
+                    } */
                     
                     ?>
 <form id="regForm" action="assign_specialist.php" method="get">  
@@ -131,7 +142,7 @@ button:hover {
             <p>Type:</p>
             <p>
                 <select name="type" style="width:200px">
-                    
+                  
                 </select>
             </p>
             <p><input placeholder="Serial Number.." oninput="this.className = ''" name="serial_no" style="width:200px"></p>
