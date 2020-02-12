@@ -33,7 +33,6 @@ h1 {
 textarea{
     font-family: Raleway;
     font-size: 17px;
-
 }
 
 input {
@@ -48,9 +47,8 @@ input {
 input.invalid {
   background-color: #ffdddd;
 }
-
-
 </style>
+
 
 <body>
 <!-- NAVBAR -->
