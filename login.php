@@ -40,16 +40,20 @@ session_start();
 		}
 		
 		$sql = "select job, site_id from personnel where id = $user_id";
-		$result = mysqli_query($conn, $sql);
+		$res = mysqli_query($conn, $sql);
 		// Fetch all
-		$test = mysqli_fetch_all($result, MYSQLI_NUM);
+		$result = mysqli_fetch_all($res, MYSQLI_ASSOC);
 
 		// Free result set
 		print_r($test);
-				
 		
-		
-		
+		if (strtolower($result[0]['job']) == "operator") {
+			return true;
+		}
+		else{
+			return false;
+		}
+		return $result[0]['site_id'];
 	}
 	/* function hashPassword($plaintext_password){
 		$hashed_password = hash("sha256", $plaintext_password);
