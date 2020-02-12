@@ -24,7 +24,7 @@ hr {
 }
 
 .navbar {
-  background-color: #5f0071;
+  background-color: !important #5f0071;
 }
 .navbar .navbar-brand {
   color: #ecf0f1;
