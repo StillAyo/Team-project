@@ -115,11 +115,11 @@ button:hover {
 					} 
                     
                     
-                    /* $sql="select * from problem_type";
+                    $sql="select * from problem_type";
                     $res = mysqli_query($conn, $sql);
 					// Fetch all
 					$result = mysqli_fetch_all($res, MYSQLI_ASSOC);
-					print_r($result); */
+					print_r($result);
 
                     
                     ?>
