@@ -63,7 +63,7 @@ button:hover {
 	$fields_values = array( intval($_GET["caller_id"]), 1 ,$_GET["date"]." ".$_GET["time"] ,$_GET["reason"] );  //Inputs from form 
 
 	$sql = "insert into call_log (callerid, operatorid, time, reason) VALUES($fields_values[0], $fields_values[1],
-	$fields_values[2],$fields_values[3])";
+	'$fields_values[2]','$fields_values[3]')";
 		
 	
 	if (mysqli_query($conn, $sql)) {
