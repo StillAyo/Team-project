@@ -45,7 +45,7 @@ session_start();
 		$result = mysqli_fetch_all($res, MYSQLI_ASSOC);
 
 		// Free result set
-		print_r($test);
+		print_r($result);
 		
 		if (strtolower($result[0]['job']) == "operator") {
 			return true;
