@@ -45,21 +45,20 @@ button:hover {
 <body>
 
 <?php
-		$servername = "localhost";
-		$username = "root";
-		$password = "SIpnz0Sjel";
+	$servername = "localhost";
+$username = "root";
+$password = "SIpnz0Sjel";
 
-		// Create connection
-		$conn = mysqli_connect($servername, $username, $password, 'team018');
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, 'team018');
 
-		// Check connection
-		if ($conn->connect_error) {
-			die("Connection failed: " . $conn->connect_error);
-		}
-		else{
-			echo 'connected2';
-		}
-	
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+else{
+        echo "Connected successfully";
+}
 	/* $sql = "insert into call_log (callerid, operatorid, time, reason) VALUES($fields_values[0], $fields_values[1],
 	$fields_values[2],$fields_values[3]";
 	
