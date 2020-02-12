@@ -66,17 +66,18 @@ button:hover {
 	$fields_values[2],$fields_values[3]";
 	
 	$sql = "select * from call_log where callerid = $fields_values[0]";
-	$res = mysqli_query($conn, $sql);
-		// Fetch all
-	$result = mysqli_fetch_all($res, MYSQLI_ASSOC);
-	echo $result;
+	
 	
 	if (mysqli_query($conn, $sql)) {
 		echo "New record created successfully";
 	} else {
 		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 	}
-
+	
+	$res = mysqli_query($conn, $sql);
+		// Fetch all
+	$result = mysqli_fetch_all($res, MYSQLI_ASSOC);
+	echo $result;
 
 	// $types = array('integer','integer', 'text', 'text'); //Data types of values
 	// $sth = $mdb2->prepare('INSERT INTO call_log (callerid, operatorid, time, reason)VALUES (?, ?, ?, ?)', $types, MDB2_PREPARE_MANIP); //Sql prepare statement
