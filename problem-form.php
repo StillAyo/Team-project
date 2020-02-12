@@ -108,27 +108,32 @@ button:hover {
             <p>
                 <select name="type" style="width:200px">
                     <?php
-                    require_once 'MDB2.php';
-                    include "database-credentials.php";
-                    $host='localhost';
-                    $dbName='team018';
-                    $dsn = "mysql://$username:$password@$host/$dbName"; 
-                    
-                    $db =& MDB2::connect($dsn); 
-                    if(PEAR::isError($db)){ 
-                        die($db->getMessage());
-                    }
-                    
-                    $sql="SELECT * FROM problem_type";
-                    $res =& $db->query($sql);
-                    if(PEAR::isError($res)){ 
-                        die($res->getMessage());
-                    }
+                    $servername = "localhost";
+					$username = "root";
+					$password = "SIpnz0Sjel";
 
-                    /*Populate drop down menu with types from database*/
+					// Create connection
+					$conn = mysqli_connect($servername, $username, $password, 'team018');
+
+					// Check connection
+					/* if ($conn->connect_error) {
+						die("Connection failed: " . $conn->connect_error);
+					}
+					else{
+							echo "Connected successfully";
+					} */
+                    
+                    
+                    $sql="select * from problem_type";
+                    $res = mysqli_query($conn, $sql);
+					// Fetch all
+					$result = mysqli_fetch_all($res, MYSQLI_ASSOC);
+					print_r($result);
+
+                    /*Populate drop down menu with types from database
                     while($row = $res->fetchRow()) {
                       echo "<option value=".$row[0].">" . $row[0] . "</option>"; 
-                    }
+                    }*/
                     ?>
                 </select>
             </p>
