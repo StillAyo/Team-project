@@ -98,7 +98,7 @@ button:hover {
     </div>
   </nav>
 <!-- END NAVBAR -->
-<?php
+				<?php
                     $servername = "localhost";
 					$username = "root";
 					$password = "SIpnz0Sjel";
@@ -115,12 +115,7 @@ button:hover {
 					} 
                     
                     
-                    $sql="select * from problem_type";
-                    $res = mysqli_query($conn, $sql);
-					// Fetch all
-					$result = mysqli_fetch_all($res, MYSQLI_ASSOC);
-					print_r($result);
-
+                   
                     
                     ?>
 <form id="regForm" action="assign_specialist.php" method="get">  
