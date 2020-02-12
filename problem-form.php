@@ -98,42 +98,7 @@ button:hover {
     </div>
   </nav>
 <!-- END NAVBAR -->
-				<?php
-                    $servername = "localhost";
-					$username = "root";
-					$password = "SIpnz0Sjel";
-
-					// Create connection
-					$conn = mysqli_connect($servername, $username, $password, 'team018');
-
-					// Check connection
-					 if ($conn->connect_error) {
-						die("Connection failed: " . $conn->connect_error);
-					}
-					else{
-							echo "Connected successfully";
-					} 
-                    
-                    
-                    $sql="select * from problem_type";
-                    $res = mysqli_query($conn, $sql);
-					// Fetch all
-					/* $result = mysqli_fetch_all($res, MYSQLI_ASSOC);
-					print_r($result); */
-					
-					if (mysqli_num_rows($res) > 0) {
-						// output data of each row
-						while($row = mysqli_fetch_assoc($res)) {
-							echo $row['type'];
-						}
-					} else {
-						echo "0 results";
-					}
-                   /*  while($row = $res->fetchRow()) {
-                      echo "<option value=".$row[0].">" . $row[0] . "</option>"; 
-                    } */
-                    
-                    ?>
+				
 <form id="regForm" action="assign_specialist.php" method="get">  
   <h1>Problem log:</h1>
   <div class="tab">
@@ -142,7 +107,28 @@ button:hover {
             <p>Type:</p>
             <p>
                 <select name="type" style="width:200px">
-                  
+                <?php
+                    $servername = "localhost";
+					$username = "root";
+					$password = "SIpnz0Sjel";
+
+					// Create connection
+					$conn = mysqli_connect($servername, $username, $password, 'team018');
+                    
+                    $sql="select * from problem_type";
+                    $res = mysqli_query($conn, $sql);
+					
+					if (mysqli_num_rows($res) > 0) {
+						// output data of each row
+						while($row = mysqli_fetch_assoc($res)) {
+							echo "<option value=".$row['type'].">" . $row['type'] . "</option>";
+						}
+					} else {
+						echo "0 results";
+					}
+                   
+                    
+                ?>
                 </select>
             </p>
             <p><input placeholder="Serial Number.." oninput="this.className = ''" name="serial_no" style="width:200px"></p>
