@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
@@ -51,6 +54,9 @@ button:hover {
 
 	// Create connection
 	$conn = mysqli_connect($servername, $username, $password, 'team018');
+	
+	$_SESSION["caller_id"] = $_GET["caller_id"];
+	$_SESSION["date"] = $_GET["date"];
 
 	// Check connection
 	/* if ($conn->connect_error) {
@@ -60,7 +66,7 @@ button:hover {
 			echo "Connected successfully";
 	} */
 	
-	$fields_values = array( intval($_GET["caller_id"]), 1 ,$_GET["date"]." ".$_GET["time"] ,$_GET["reason"] );  //Inputs from form 
+	$fields_values = array( intval($_GET["caller_id"]), $_SESSION["operator_id"] ,$_GET["date"]." ".$_GET["time"] ,$_GET["reason"] );  //Inputs from form 
 
 	$sql = "insert into call_log (callerid, operatorid, time, reason) VALUES($fields_values[0], $fields_values[1],
 	'$fields_values[2]','$fields_values[3]')";
@@ -121,6 +127,7 @@ button:hover {
     echo '<thead>';
     echo '<tr>';
         echo '<th>'."Caller ID".'</th>';
+		echo '<th>'."Operator ID".'</th>';
         echo '<th>'."Date".'</th>';
         echo '<th>'."Time".'</th>';
         echo '<th>'."Reason".'</th>';
@@ -128,6 +135,7 @@ button:hover {
     echo '</thead>';
         echo '<tr>';
         echo '<td>'.$_GET["caller_id"].'</td>';
+		echo '<td>'.$_SESSION["operator_id"].'</td>';
         echo '<td>'.$_GET["date"] .'</td>';
         echo '<td>'.$_GET["time"].'</td>';
         echo '<td>'.$_GET["reason"].'</td>';
