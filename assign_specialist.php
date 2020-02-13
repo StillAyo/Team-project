@@ -81,7 +81,7 @@ body {
 	$problem_no = $_SESSION["Problem_no"];
 	$array = $_SESSION["problem_details"];
 	
-	$fields_values = array($problem_no, 123);
+	$fields_values = array($problem_no, '123');
 	
 	//----------------CHANGE '123' TO SPECIALIST ID-------------------------//
 	$sql = 'INSERT INTO live (problem_no, specialist_id) VALUES ($fields_values[0], $fields_values[1])'; //Sql prepare statement
@@ -144,15 +144,7 @@ body {
         ?>
         <br>
         <p>Choose Specialist:</p>
-		<form method="get" action="changeUser.php">
-			<select name="specialist_selec" style="width:200px">
-					<?php foreach($array2 as $key => $value) { ?>
-					<option value="<?php echo $value ?>"><?php echo $value ?></option>
-					<?php }?>
-				</select>
-				<br><br>
-				<input type="submit" value="Change"></input>
-        </form>
+		
         <br><br>
         <button type="button" class="btn btn-primary" onclick="location.href = 'allProblems.html'">Live Jobs</button>
     </div>
