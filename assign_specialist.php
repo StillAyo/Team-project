@@ -91,13 +91,22 @@ body {
 		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 	}
 	
-	$sql2="SELECT live.specialist_id, personnel.name, COUNT(live.problem_no) FROM live INNER JOIN personnel ON personnel.id = live.specialist_id GROUP BY live.specialist_id ORDER BY 3 ASC";	
-	if (mysqli_query($conn, $sql2)) {
-		echo "New record created successfully";
-	} else {
-		echo "Error: " . $sql2 . "<br>" . mysqli_error($conn);
-	}
+	$sql2="SELECT live.specialist_id, personnel.name, COUNT(live.problem_no) FROM live INNER JOIN personnel ON personnel.id = live.specialist_id GROUP BY live.specialist_id ORDER BY 3 ASC";
+	$res2 = mysqli_query($conn, $sql2);
+	$array2 = array();
 	
+	if (mysqli_num_rows($res2) > 0) {
+			// output data of each row
+		while($row2 = mysqli_fetch_row($res2)) {
+			array_push($array2, $row2[0]);
+		}
+	}
+	else{
+			echo "no results";
+
+		}
+	print_r($array2);
+	$sql3="SELECT live.specialist_id, personnel.name, COUNT(live.problem_no) FROM live INNER JOIN personnel ON personnel.id = live.specialist_id GROUP BY live.specialist_id ORDER BY 3 ASC";
 
 ?>
 <div id="window">
