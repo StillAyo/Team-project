@@ -87,6 +87,7 @@ input.invalid {
     <div align="center">
         <div style="display: inline-block; text-align: left;">
             <p>Type:</p>
+			<select name="type">
             <p>
                 <select name="type" style="width:200px">
                 <?php
