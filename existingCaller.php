@@ -103,9 +103,9 @@ body {
         <th>Date</th>
         <th>Problem Description</th>
         </tr>";
-		if (mysqli_num_rows($res2) > 0) {
+		if (mysqli_num_rows($res) > 0) {
 			// output data of each row
-			while($row = mysqli_fetch_assoc($res2)) {
+			while($row = mysqli_fetch_assoc($res)) {
 				echo "<tr>";
 				echo "<td>" . $row['problem_no'] . "</td>";
 				echo "<td>" . $row['type'] . "</td>";
