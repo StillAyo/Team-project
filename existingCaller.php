@@ -110,7 +110,7 @@ body {
 		echo "<td>" . 'test' . "</td>";
 		echo "</tr>";
 		
-		foreach($result2 as $x){
+		foreach($result as $x){
 			print_r($x);
 				echo "<tr>";
 				echo "<td>" . $x['problem_no'] . "</td>";
