@@ -104,11 +104,22 @@ body {
         <th>Problem Description</th>
         </tr>";
 		echo "<tr>";
-				echo "<td>" . 'test' . "</td>";
-				echo "<td>" . 'test' . "</td>";
-				echo "<td>" . 'test' . "</td>";
-				echo "<td>" . 'test' . "</td>";
+		echo "<td>" . 'test' . "</td>";
+		echo "<td>" . 'test' . "</td>";
+		echo "<td>" . 'test' . "</td>";
+		echo "<td>" . 'test' . "</td>";
+		echo "</tr>";
+		
+		for($x in $result2){
+			echo $row;
+				echo "<tr>";
+				echo "<td>" . $row['problem_no'] . "</td>";
+				echo "<td>" . $row['type'] . "</td>";
+				echo "<td>" . $row['date'] . "</td>";
+				echo "<td>" . $row['description'] . "</td>";
 				echo "</tr>";
+		}
+		
 		if (mysqli_num_rows($res) > 0) {
 			// output data of each row
 			while($row = mysqli_fetch_assoc($res)) {
