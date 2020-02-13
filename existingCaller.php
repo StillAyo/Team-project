@@ -83,7 +83,7 @@ body {
 		
 	?>
 <div id="window">
-    <p align="center" style="font-size:300%;text-transform:capitalize;"> <?php echo $row2 ?> </p>
+    <p align="center" style="font-size:300%;text-transform:capitalize;">  </p>
     <div align="center">
     <p>ID Number: <?php echo $id ?></p>
     <p>Problems:</p>
