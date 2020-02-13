@@ -79,19 +79,32 @@ body {
 	//----------FUNCTION TO RETURN APPROPRIATE SPECIALIST--------------//
 	//Insert Into LIVE
 	$problem_no = $_SESSION["Problem_no"];
+	$array = $_SESSION["problem_details"];
 	
 	$fields_values = array($problem_no, '123');
-	print_r($fields_values);
+	
 	//----------------CHANGE '123' TO SPECIALIST ID-------------------------//
-	$sql = "INSERT INTO live (problem_no, specialist_id) VALUES ('$fields_values[0]', '$fields_values[1]')"; //Sql prepare statement
+	$sql = "INSERT INTO live (problem_no, specialist_id) VALUES ($fields_values[0], $fields_values[1])"; //Sql prepare statement
 	if (mysqli_query($conn, $sql)) {
 		echo "New record created successfully";
 	} else {
 		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 	}
+	
+	sql2="SELECT live.specialist_id, personnel.name, COUNT(live.problem_no) FROM live INNER JOIN personnel ON personnel.id = live.specialist_id GROUP BY live.specialist_id ORDER BY 3 ASC";
+	$array2 = array();
+	if (mysqli_num_rows($sql2) > 0) {
+			// output data of each row
+		while($row2 = mysqli_fetch_row($sql2)) {
+			array_push($array2, $row2[0]);
+		}
+	}
+	else{
+			echo "Error: " . $sql2 . "<br>" . mysqli_error($conn);
 
+		}
 	
-	
+	$sql3="SELECT live.specialist_id, personnel.name, COUNT(live.problem_no) FROM live INNER JOIN personnel ON personnel.id = live.specialist_id GROUP BY live.specialist_id ORDER BY 3 ASC";
 
 ?>
 <div id="window">
@@ -108,7 +121,20 @@ body {
         <th>Name</th>
         <th>Number of live jobs</th>
         </tr>";
-		
+		if (mysqli_num_rows($sql3) > 0) {
+			// output data of each row
+			while($row3 = mysqli_fetch_row($sql3)) {
+				echo "<tr>";
+				echo "<td>" . $row3[0] . "</td>";
+				echo "<td>" . $row3[1] . "</td>";
+				echo '<td align="center">' . $row3[2] . "</td>";
+				echo "</tr>";	
+			}
+		}
+		else{
+			echo "Error: " . $sql3 . "<br>" . mysqli_error($conn);
+
+		}
             
         echo "</table>";
         ?>
