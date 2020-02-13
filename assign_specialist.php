@@ -93,7 +93,7 @@ body {
 	
 	sql2="SELECT live.specialist_id, personnel.name, COUNT(live.problem_no) FROM live INNER JOIN personnel ON personnel.id = live.specialist_id GROUP BY live.specialist_id ORDER BY 3 ASC";
 	$array2 = array();
-	if (mysqli_num_rows($res) > 0) {
+	if (mysqli_num_rows($sql2) > 0) {
 			// output data of each row
 		while($row = mysqli_fetch_row($sql2)) {
 			array_push($array2, $row2[0]);
