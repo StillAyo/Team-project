@@ -101,7 +101,7 @@ body {
 		}
 	}
 	else{
-			echo "Error: " . $sql2 . "<br>" . mysqli_error($conn);
+			echo "no results";
 
 		}
 	print_r($array2);
