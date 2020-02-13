@@ -91,53 +91,13 @@ body {
 		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 	}
 	
-	sql2="SELECT live.specialist_id, personnel.name, COUNT(live.problem_no) FROM live INNER JOIN personnel ON personnel.id = live.specialist_id GROUP BY live.specialist_id ORDER BY 3 ASC";
-	$array2 = array();
-	if (mysqli_num_rows($sql2) > 0) {
-			// output data of each row
-		while($row2 = mysqli_fetch_row($sql2)) {
-			array_push($array2, $row2[0]);
-		}
-	}
-	else{
-			echo "Error: " . $sql2 . "<br>" . mysqli_error($conn);
-
-		}
 	
-	$sql3="SELECT live.specialist_id, personnel.name, COUNT(live.problem_no) FROM live INNER JOIN personnel ON personnel.id = live.specialist_id GROUP BY live.specialist_id ORDER BY 3 ASC";
-
 ?>
 <div id="window">
     <p align="center" style="font-size:300%;">Assign Specialist</p>
     <div align="center">
     <p>Suggestions to change:</p>
-        <?php
-        echo '<style>';
-        echo 'table { border-collapse: collapse;}';
-        echo '</style>';
-        echo '<table cellpadding="10", border="1">';
-        echo "<tr>
-        <th>Specialist ID</th>
-        <th>Name</th>
-        <th>Number of live jobs</th>
-        </tr>";
-		if (mysqli_num_rows($sql3) > 0) {
-			// output data of each row
-			while($row3 = mysqli_fetch_row($sql3)) {
-				echo "<tr>";
-				echo "<td>" . $row3[0] . "</td>";
-				echo "<td>" . $row3[1] . "</td>";
-				echo '<td align="center">' . $row3[2] . "</td>";
-				echo "</tr>";	
-			}
-		}
-		else{
-			echo "Error: " . $sql3 . "<br>" . mysqli_error($conn);
-
-		}
-            
-        echo "</table>";
-        ?>
+       
         <br>
         <p>Choose Specialist:</p>
 		
