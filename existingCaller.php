@@ -60,15 +60,6 @@ body {
     <!-- END NAVBAR -->
 	<?php
 		//Database Connection
-		require_once 'MDB2.php';
-		include "database-credentials.php";
-		$host='localhost';
-		$dbName='team018';
-		$dsn = "mysql://$username:$password@$host/$dbName"; 
-		$db =& MDB2::connect($dsn); 
-		if(PEAR::isError($db)){ 
-			die($db->getMessage());
-		}
 		
 		$servername = "localhost";
 		$username = "root";
@@ -86,14 +77,38 @@ body {
 		}
 		
 		$id = $_GET["callersID"];
+		$sql="SELECT * FROM problem WHERE personnel_id =$id";
+		$res = mysqli_query($conn, $sql) or trigger_error("Query Failed! SQL: $sql - Error: ".mysqli_error($conn), E_USER_ERROR);
+		
+		$sql2="SELECT name FROM personnel WHERE id =$id";
 		
 	?>
 <div id="window">
-    <p align="center" style="font-size:300%;text-transform:capitalize;">  </p>
+    <p align="center" style="font-size:300%;text-transform:capitalize;"> </p>
     <div align="center">
     <p>ID Number: <?php echo $id ?></p>
     <p>Problems:</p>
-        
+        <?php
+        echo '<style>';
+        echo 'table { border-collapse: collapse;}';
+        echo '</style>';
+        echo '<table cellpadding="10", border="1">';
+        echo "<tr>
+        <th>Problem Number</th>
+        <th>Type</th>
+        <th>Date</th>
+        <th>Problem Description</th>
+        </tr>";
+        while($row = $res->fetchRow()){
+            echo "<tr>";
+            echo "<td>" . $row[0] . "</td>";
+            echo "<td>" . $row[1] . "</td>";
+            echo "<td>" . $row[5] . "</td>";
+            echo "<td>" . $row[3] . "</td>";
+            echo "</tr>";
+        }
+        echo "</table>";
+        ?>
         <br>
     </div>
 </div>
