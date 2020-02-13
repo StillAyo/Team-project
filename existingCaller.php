@@ -82,6 +82,10 @@ body {
 		$result = mysqli_fetch_all($res, MYSQLI_ASSOC);
 		print_r ($result);
 		
+		$sql2="SELECT name FROM personnel WHERE id ='".$id."'";
+		$res2 = mysqli_query($conn, $sql2) or trigger_error("Query Failed! SQL: $sql2 - Error: ".mysqli_error($conn), E_USER_ERROR);
+		$result2 = mysqli_fetch_row($res2);
+		print_r($result2);
 	?>
 <div id="window">
     <p align="center" style="font-size:300%;text-transform:capitalize;">  </p>
