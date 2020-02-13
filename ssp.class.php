@@ -382,7 +382,7 @@ class SSP {
 	static function sql_connect ( $sql_details )
 	{
 		try {
-			$db = new PDO("mysql:host=$servername;dbname='team018'", $sql_details['user'], $sql_details['pass']);
+			$db = new PDO("mysql:host=$sql_details['host'];dbname='team018'", $sql_details['user'], $sql_details['pass']);
 			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			echo "Connected successfully";
 			/* $db = @new PDO(
