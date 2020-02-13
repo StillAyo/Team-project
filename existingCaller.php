@@ -80,11 +80,7 @@ body {
 		$sql="SELECT * FROM problem WHERE personnel_id =$id";
 		$res = mysqli_query($conn, $sql) or trigger_error("Query Failed! SQL: $sql - Error: ".mysqli_error($conn), E_USER_ERROR);
 		
-		$sql2="SELECT name FROM personnel WHERE id =$id";
-		$res2 = mysqli_query($conn, $sql_2) or  trigger_error("Query Failed! SQL: $sql2 - Error: ".mysqli_error($conn), E_USER_ERROR);
 		
-		$row2 = mysqli_fetch_assoc($res2);
-		print_r($row2);
 	?>
 <div id="window">
     <p align="center" style="font-size:300%;text-transform:capitalize;"> <?php echo $row2 ?> </p>
