@@ -143,7 +143,15 @@ body {
         ?>
         <br>
         <p>Choose Specialist:</p>
-		
+		<form method="get" action="changeUser.php">
+            <select name="specialist_selec" style="width:200px">
+                <?php foreach($array2 as $key => $value) { ?>
+                <option value="<?php echo $value ?>"><?php echo $value ?></option>
+                <?php }?>
+            </select>
+            <br><br>
+            <input type="submit" value="Change"></input>
+        </form>
         <br><br>
         <button type="button" class="btn btn-primary" onclick="location.href = 'allProblems.html'">Live Jobs</button>
     </div>
