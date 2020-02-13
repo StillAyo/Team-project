@@ -106,6 +106,16 @@ body {
 		if (mysqli_num_rows($res) > 0) {
 			// output data of each row
 			while($row = mysqli_fetch_assoc($res)) {
+				echo "testing";
+			}
+			echo "</table>";
+
+		} else {
+			echo "0 results";
+		}
+		/* if (mysqli_num_rows($res) > 0) {
+			// output data of each row
+			while($row = mysqli_fetch_assoc($res)) {
 				echo $row;
 				echo "<tr>";
 				echo "<td>" . $row[0]['problem_no'] . "</td>";
@@ -115,7 +125,7 @@ body {
 				echo "</tr>";
 			}
 		 echo "</table>";
-		} 
+		}  */
         
         ?>
         <br>
