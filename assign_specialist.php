@@ -96,7 +96,7 @@ body {
 	if (mysqli_num_rows($sql2) > 0) {
 			// output data of each row
 		while($row2 = mysqli_fetch_row($sql2)) {
-			array_push($array2, $row2[0]);
+			echo $row2;
 		}
 	}
 	else{
