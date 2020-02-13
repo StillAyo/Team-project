@@ -117,7 +117,7 @@ body {
         <th>Name</th>
         <th>Number of live jobs</th>
         </tr>";
-		if (mysqli_num_rows($res) > 0) {
+		if (mysqli_num_rows($sql3) > 0) {
 			// output data of each row
 			while($row3 = mysqli_fetch_row($sql3)) {
 				echo "<tr>";
