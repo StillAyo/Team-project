@@ -28,7 +28,9 @@ body {
   min-width: 300px;
 }
 
-
+#new_problem_no new_problem_yes{
+	display:inline-block;
+}
 </style>
 <title>Log Call</title>
 <body>
@@ -128,8 +130,8 @@ body {
     </p>
     <p align="center" style="font-size:200%;">Would you like to log a new problem?</p>
     <div align="center">
-		<button type="button" class="btn btn-primary" id="new_problem_yes" onclick="location.href = 'problem-form.php'">Yes</button>
 		<form id="existingCaller" action="existingCaller.php" method="get">
+			<button type="button" class="btn btn-primary" id="new_problem_yes" onclick="location.href = 'problem-form.php'">Yes</button>
 			<input type="hidden" value=<?php echo $callersID ?> name="callersID">
 			<button type="submit" class="btn btn-light" id="new_problem_no" style="background-color: #bbbbbb">No</button>
 		</form>
