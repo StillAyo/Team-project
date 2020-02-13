@@ -104,7 +104,7 @@ body {
 			echo "Error: " . $sql2 . "<br>" . mysqli_error($conn);
 
 		}
-	$print_r($array2);
+	print_r($array2);
 	$sql3="SELECT live.specialist_id, personnel.name, COUNT(live.problem_no) FROM live INNER JOIN personnel ON personnel.id = live.specialist_id GROUP BY live.specialist_id ORDER BY 3 ASC";
 
 ?>
