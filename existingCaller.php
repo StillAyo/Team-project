@@ -106,15 +106,14 @@ body {
 		if (mysqli_num_rows($res2) > 0) {
 			// output data of each row
 			while($row = mysqli_fetch_assoc($res2)) {
-				echo "<option value=".$row['type'].">" . $row['type'] . "</option>";
 				echo "<tr>";
 				echo "<td>" . $row['problem_no'] . "</td>";
 				echo "<td>" . $row['type'] . "</td>";
 				echo "<td>" . $row['date'] . "</td>";
 				echo "<td>" . $row['description'] . "</td>";
 				echo "</tr>";
-				$x++;
 			}
+		 echo "</table>";
 		} 
         while($row = $res->fetchRow()){
             echo "<tr>";
