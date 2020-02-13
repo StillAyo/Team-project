@@ -53,24 +53,19 @@ body {
 	} */
 	
 	$fields_values = array( intval($_GET["caller_id"]), $_SESSION["operator_id"] ,$_GET["date"]." ".$_GET["time"] ,$_GET["reason"] );  //Inputs from form 
-	print_r($fields_values);
+	
 
 	$sql = "insert into call_log (callerid, operatorid, time, reason) VALUES($fields_values[0], $fields_values[1],
 	'$fields_values[2]','$fields_values[3]')";
 		
-	if (mysqli_query($conn, $sql)) {
+	/* if (mysqli_query($conn, $sql)) {
 		echo "New record created successfully";
 	} else {
 		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-	}
+	} */
 	
 
 	
-
-	// $types = array('integer','integer', 'text', 'text'); //Data types of values
-	// $sth = $mdb2->prepare('INSERT INTO call_log (callerid, operatorid, time, reason)VALUES (?, ?, ?, ?)', $types, MDB2_PREPARE_MANIP); //Sql prepare statement
-
-	// $affectedRows = $sth->execute($fields_values); //Sql execute
 ?> 
 
    <!-- NAVBAR -->
@@ -105,7 +100,8 @@ body {
 <div id="window">
     <p align="center" style="font-size:300%;">Call Logged <span style="color: #007bff">&#10004;</span></p>
     <p align="center">
-    <?php  //Table showing what was inserted into database
+    <?php  
+	//Table showing what was inserted into database
     echo '<style>';
     echo 'table { border-collapse: collapse;}';
     echo '</style>';
@@ -126,13 +122,17 @@ body {
         echo '<td>'.$_GET["time"].'</td>';
         echo '<td>'.$_GET["reason"].'</td>';
         echo '</tr>';
-    echo '</table>' 
+    echo '</table>';
+	$callersID=$_GET["caller_id"];	
     ?>
     </p>
     <p align="center" style="font-size:200%;">Would you like to log a new problem?</p>
     <div align="center">
-      <button type="button" class="btn btn-primary" id="new_problem_yes" onclick="location.href = 'problem-form.php'">Yes</button>
-      <button type="button2" class="btn btn-light" id="new_problem_no" onclick="location.href = 'allProblems.html'" style="background-color: #bbbbbb">No</button>
+		<button type="button" class="btn btn-primary" id="new_problem_yes" onclick="location.href = 'problem-form.php'">Yes</button>
+		<form id="existingCaller" action="existingCaller.php" method="get">
+			<input type="hidden" value=<?php echo $callersID ?> name="callersID">
+			<button type="submit" class="btn btn-light" id="new_problem_no" style="background-color: #bbbbbb">No</button>
+		</form>
     </div>
 </div>
 </body>
