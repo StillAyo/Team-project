@@ -383,7 +383,7 @@ class SSP {
 	{
 		try {
 			$db = new PDO("mysql:host=$servername;dbname='team018'", $sql_details['user'], $sql_details['pass']);
-			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			echo "Connected successfully";
 			/* $db = @new PDO(
 				"mysql:host={$sql_details['host']};dbname={$sql_details['db']}",
