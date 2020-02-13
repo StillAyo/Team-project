@@ -111,6 +111,7 @@ body {
 		echo "</tr>";
 		
 		foreach($result2 as $x){
+			print_r($x);
 				echo "<tr>";
 				echo "<td>" . $x['problem_no'] . "</td>";
 				echo "<td>" . $x['type'] . "</td>";
