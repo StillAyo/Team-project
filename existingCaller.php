@@ -113,10 +113,10 @@ body {
 		for($x in $result2){
 			echo $row;
 				echo "<tr>";
-				echo "<td>" . $row['problem_no'] . "</td>";
-				echo "<td>" . $row['type'] . "</td>";
-				echo "<td>" . $row['date'] . "</td>";
-				echo "<td>" . $row['description'] . "</td>";
+				echo "<td>" . $x['problem_no'] . "</td>";
+				echo "<td>" . $x['type'] . "</td>";
+				echo "<td>" . $x['date'] . "</td>";
+				echo "<td>" . $x['description'] . "</td>";
 				echo "</tr>";
 		}
 		
