@@ -86,10 +86,6 @@ body {
 		}
 		
 		$id = $_GET["callersID"];
-		$sql="SELECT * FROM problem WHERE personnel_id =$id";
-		$res = mysqli_query($conn, $sql) or trigger_error("Query Failed! SQL: $sql - Error: ".mysqli_error($conn), E_USER_ERROR);
-		
-		$sql2="SELECT name FROM personnel WHERE id =$id";
 		
 	?>
 <div id="window">
