@@ -95,7 +95,7 @@ body {
 	$array2 = array();
 	if (mysqli_num_rows($sql2) > 0) {
 			// output data of each row
-		while($row = mysqli_fetch_row($sql2)) {
+		while($row2 = mysqli_fetch_row($sql2)) {
 			array_push($array2, $row2[0]);
 		}
 	} 
@@ -106,7 +106,7 @@ body {
 <div id="window">
     <p align="center" style="font-size:300%;">Assign Specialist</p>
     <div align="center">
-    <p>Suggestions:</p>
+    <p>Suggestions to change:</p>
         <?php
         echo '<style>';
         echo 'table { border-collapse: collapse;}';
@@ -119,7 +119,7 @@ body {
         </tr>";
 		if (mysqli_num_rows($res) > 0) {
 			// output data of each row
-			while($row = mysqli_fetch_row($sql3)) {
+			while($row3 = mysqli_fetch_row($sql3)) {
 				echo "<tr>";
 				echo "<td>" . $row3[0] . "</td>";
 				echo "<td>" . $row3[1] . "</td>";
