@@ -125,20 +125,7 @@ body {
         <th>Name</th>
         <th>Number of live jobs</th>
         </tr>";
-		if (mysqli_num_rows($sql3) > 0) {
-			// output data of each row
-			while($row3 = mysqli_fetch_row($sql3)) {
-				echo "<tr>";
-				echo "<td>" . $row3[0] . "</td>";
-				echo "<td>" . $row3[1] . "</td>";
-				echo '<td align="center">' . $row3[2] . "</td>";
-				echo "</tr>";	
-			}
-		}
-		else{
-			echo "Error: " . $sql3 . "<br>" . mysqli_error($conn);
-
-		}
+		
             
         echo "</table>";
         ?>
