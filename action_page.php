@@ -57,6 +57,11 @@ body {
 	$sql = "insert into call_log (callerid, operatorid, time, reason) VALUES($fields_values[0], $fields_values[1],
 	'$fields_values[2]','$fields_values[3]')";
 		
+	if (mysqli_query($conn, $sql)) {
+		echo "New record created successfully";
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	}
 	
 
 	

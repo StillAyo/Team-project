@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
@@ -26,25 +29,11 @@ body {
   min-width: 300px;
 }
 
-button {
-  background-color: #00e1f1;
-  color: #ffffff;
-  border: none;
-  padding: 10px 20px;
-  font-size: 17px;
-  font-family: Raleway;
-  cursor: pointer;
-}
-
-button:hover {
-  opacity: 0.8;
-}
-
 </style>
 <body>
 <!-- NAVBAR -->
 <nav class="navbar navbar-default navbar-dark bg-d">
-    <a class="navbar-brand" href="#">Make-It-All</a>
+    <a class="navbar-brand" href="finalhomepage.html">Make-It-All</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -71,8 +60,42 @@ button:hover {
     </div>
   </nav>
 <!-- END NAVBAR -->
+
+<?php
+	$servername = "localhost";
+	$username = "root";
+	$password = "SIpnz0Sjel";
+
+	// Create connection
+	$conn = mysqli_connect($servername, $username, $password, 'team018');
+
+	
+	
+	$caller_id = intval($_SESSION["caller_id"]);
+	$date = $_SESSION["date"];
+	$fields_values = array($_GET["type"] , intval($_GET["serial_no"]) , $_GET["description"], $caller_id, $date);  //Inputs from form
+	$_SESSION["problem_details"] = $fields_values;
+	
+	
+	// Insert New Problem into problem table
+	$sql = "INSERT INTO problem (type, serial_no, description, personnel_id, date) VALUES ($fields_values[0],$fields_values[1],
+			$fields_values[2],$fields_values[3], $fields_values[4])";
+	
+	if (mysqli_query($conn, $sql)) {
+		echo "New record created successfully";
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	}
+	
+	//Get problem number for later use
+	$sql2="SELECT problem_no FROM problem ORDER BY problem_no DESC LIMIT 1";
+	$res = mysqli_query($conn, $sql2);
+	$result = mysqli_fetch_row($res);
+	$_SESSION["Problem_no"] = $result[0];
+	echo $result[0];
+?>
 <div id="window">
-    <p align="center" style="font-size:300%;">Problem Logged 	<span style="color: #007bff">&#10004;</span></p>
+    <p align="center" style="font-size:300%;">Problem Number <?php echo $_SESSION["Problem_no"]; ?> Logged<span style="color: #007bff">&#10004;</span></p>
     <p align="center">Recent Solutions:</p>
     <div align="center">
       <?php
@@ -87,17 +110,31 @@ button:hover {
       <th>Dates</th>
       <th>Notes</th>
       </tr>";
-          echo "<tr>";
-          echo "<td>" . "4" . "</td>";
-          echo "<td>" . "Cant connect to printer" . "</td>";
-          echo "<td>" . "Reinstall device driver" . "</td>";
-          echo "<td>" . "11/11/19" . "</td>";
-          echo "<td>" . "Update drivers in offices". "</td>";
-          echo "</tr>";
+	  $x = 0;
+		if (mysqli_num_rows($res) > 0) {
+			// output data of each row
+			while($row = mysqli_fetch_assoc($res)) {
+				echo "<option value=".$row['type'].">" . $row['type'] . "</option>";
+				echo "<tr>";
+			  echo "<td>" . $row[0] . "</td>";
+			  echo "<td>" . $row[1] . "</td>";
+			  echo "<td>" . $row[2] . "</td>";
+			  echo "<td>" . $row[3] . "</td>";
+			  echo "<td>" . $row[4] . "</td>";
+			  echo "</tr>";
+			  $x++;
+			}
+		} 
+          
+		else {
+			echo "<tr>";
+			echo "<td>" . "0 results" . "</td>";
+			echo "</tr>";
+		}
       echo "</table>";
       ?>
       <br><br>
-      <button type="button" class="btn btn-primary" id="live_page" onclick="location.href = 'allProblems.html'">Live Jobs</button> <!--Button to live jobs page-->
+		<button type="button" class="btn btn-primary" id="assign_page" onclick="location.href = 'assign_specialist.php'">Assign Specialist</button>
     </div>
 </div>
 </body>
