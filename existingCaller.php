@@ -103,6 +103,12 @@ body {
         <th>Date</th>
         <th>Problem Description</th>
         </tr>";
+		echo "<tr>";
+				echo "<td>" . 'test' . "</td>";
+				echo "<td>" . 'test' . "</td>";
+				echo "<td>" . 'test' . "</td>";
+				echo "<td>" . 'test' . "</td>";
+				echo "</tr>";
 		if (mysqli_num_rows($res) > 0) {
 			// output data of each row
 			while($row = mysqli_fetch_assoc($res)) {
