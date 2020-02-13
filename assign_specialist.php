@@ -91,7 +91,7 @@ body {
 		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 	}
 	else{
-			echo "Error: " . $sql3 . "<br>" . mysqli_error($conn);
+			echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 
 		}
 	
@@ -104,7 +104,7 @@ body {
 		}
 	}
 	else{
-			echo "Error: " . $sql3 . "<br>" . mysqli_error($conn);
+			echo "Error: " . $sql2 . "<br>" . mysqli_error($conn);
 
 		}
 	
