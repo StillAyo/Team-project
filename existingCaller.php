@@ -80,7 +80,7 @@ body {
 		$sql="SELECT * FROM problem WHERE personnel_id =$id";
 		$res = mysqli_query($conn, $sql) or trigger_error("Query Failed! SQL: $sql - Error: ".mysqli_error($conn), E_USER_ERROR);
 		$result = mysqli_fetch_all($res, MYSQLI_ASSOC);
-		echo $result;
+		print_r ($result);
 		
 	?>
 <div id="window">
