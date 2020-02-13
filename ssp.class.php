@@ -16,11 +16,7 @@
  */
 
 
-// REMOVE THIS BLOCK - used for DataTables test environment only!
-$file = $_SERVER['DOCUMENT_ROOT'].'/datatables/pdo.php';
-if ( is_file( $file ) ) {
-	include( $file );
-}
+
 
 
 class SSP {
