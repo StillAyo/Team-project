@@ -87,7 +87,6 @@ input.invalid {
     <div align="center">
         <div style="display: inline-block; text-align: left;">
             <p>Type:</p>
-			<select name="type">
             <p>
                 <select name="type" style="width:200px">
                 <?php
@@ -104,7 +103,7 @@ input.invalid {
 					if (mysqli_num_rows($res) > 0) {
 						// output data of each row
 						while($row = mysqli_fetch_assoc($res)) {
-							echo "<option value=".$row['type'].">" . $row['type'] . "</option>";
+							echo "<option value='.$row['type'].'>" . $row['type'] . "</option>";
 						}
 					} else {
 						echo "0 results";
