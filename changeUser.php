@@ -47,7 +47,7 @@ body {
 
 	$array = array($specialist_id, $problem_no);
 
-	$sql = 'UPDATE live SET specialist_id = $array[0] WHERE problem_no = $array[1]'; //Sql prepare statement
+	$sql = "UPDATE live SET specialist_id = $array[0] WHERE problem_no = $array[1]"; //Sql prepare statement
 	
 	if (mysqli_query($conn, $sql)) {
 			echo "New record updated successfully";
