@@ -91,16 +91,13 @@ body {
 		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 	}
 	
-	sql2="SELECT live.specialist_id, personnel.name, COUNT(live.problem_no) FROM live INNER JOIN personnel ON personnel.id = live.specialist_id GROUP BY live.specialist_id ORDER BY 3 ASC";
-	$array2 = array();
-	
+	$sql2="SELECT live.specialist_id, personnel.name, COUNT(live.problem_no) FROM live INNER JOIN personnel ON personnel.id = live.specialist_id GROUP BY live.specialist_id ORDER BY 3 ASC";	
 	if (mysqli_query($conn, $sql2)) {
 		echo "New record created successfully";
 	} else {
 		echo "Error: " . $sql2 . "<br>" . mysqli_error($conn);
 	}
 	
-	print_r($array2);
 
 ?>
 <div id="window">
