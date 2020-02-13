@@ -68,13 +68,7 @@ body {
 		// Create connection
 		$conn = mysqli_connect($servername, $username, $password, 'team018');
 
-		// Check connection
-		if ($conn->connect_error) {
-			die("Connection failed: " . $conn->connect_error);
-		}
-		else{
-				echo "Connected successfully";
-		}
+
 		
 		$id = $_GET["callersID"];
 		$sql="SELECT * FROM problem WHERE personnel_id =$id";
@@ -101,12 +95,7 @@ body {
         <th>Date</th>
         <th>Problem Description</th>
         </tr>";
-		echo "<tr>";
-		echo "<td>" . 'test' . "</td>";
-		echo "<td>" . 'test' . "</td>";
-		echo "<td>" . 'test' . "</td>";
-		echo "<td>" . 'test' . "</td>";
-		echo "</tr>";
+
 		
 		foreach($result as $x){
 				echo "<tr>";
@@ -118,19 +107,7 @@ body {
 		}
 		
 		echo "</table>";
-		/* if (mysqli_num_rows($res) > 0) {
-			// output data of each row
-			while($row = mysqli_fetch_assoc($res)) {
-				echo $row;
-				echo "<tr>";
-				echo "<td>" . $row[0]['problem_no'] . "</td>";
-				echo "<td>" . $row[0]['type'] . "</td>";
-				echo "<td>" . $row[0]['date'] . "</td>";
-				echo "<td>" . $row[0]['description'] . "</td>";
-				echo "</tr>";
-			}
-		 
-		}  */
+
         
         ?>
         <br>
