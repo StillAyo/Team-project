@@ -79,7 +79,8 @@ body {
 		$id = $_GET["callersID"];
 		$sql="SELECT * FROM problem WHERE personnel_id =$id";
 		$res = mysqli_query($conn, $sql) or trigger_error("Query Failed! SQL: $sql - Error: ".mysqli_error($conn), E_USER_ERROR);
-		echo $res;
+		$result = mysqli_fetch_all($res, MYSQLI_ASSOC);
+		echo $result;
 		
 	?>
 <div id="window">
