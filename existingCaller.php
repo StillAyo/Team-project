@@ -88,7 +88,7 @@ body {
 		print_r($result2);
 	?>
 <div id="window">
-    <p align="center" style="font-size:300%;text-transform:capitalize;">  </p>
+    <p align="center" style="font-size:300%;text-transform:capitalize;"> <?php echo $result2[0] ?> </p>
     <div align="center">
     <p>ID Number: <?php echo $id ?></p>
     <p>Problems:</p>
@@ -103,6 +103,19 @@ body {
         <th>Date</th>
         <th>Problem Description</th>
         </tr>";
+		if (mysqli_num_rows($res2) > 0) {
+			// output data of each row
+			while($row = mysqli_fetch_assoc($res2)) {
+				echo "<option value=".$row['type'].">" . $row['type'] . "</option>";
+				echo "<tr>";
+				echo "<td>" . $row['problem_no'] . "</td>";
+				echo "<td>" . $row['type'] . "</td>";
+				echo "<td>" . $row['date'] . "</td>";
+				echo "<td>" . $row['description'] . "</td>";
+				echo "</tr>";
+				$x++;
+			}
+		} 
         while($row = $res->fetchRow()){
             echo "<tr>";
             echo "<td>" . $row[0] . "</td>";

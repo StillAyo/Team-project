@@ -117,13 +117,13 @@ body {
 			while($row = mysqli_fetch_assoc($res)) {
 				echo "<option value=".$row['type'].">" . $row['type'] . "</option>";
 				echo "<tr>";
-			  echo "<td>" . $row[0] . "</td>";
-			  echo "<td>" . $row[1] . "</td>";
-			  echo "<td>" . $row[2] . "</td>";
-			  echo "<td>" . $row[3] . "</td>";
-			  echo "<td>" . $row[4] . "</td>";
-			  echo "</tr>";
-			  $x++;
+				echo "<td>" . $row[0] . "</td>";
+				echo "<td>" . $row[1] . "</td>";
+				echo "<td>" . $row[2] . "</td>";
+				echo "<td>" . $row[3] . "</td>";
+				echo "<td>" . $row[4] . "</td>";
+				echo "</tr>";
+				$x++;
 			}
 		} 
           
