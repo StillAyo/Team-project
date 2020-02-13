@@ -29,20 +29,6 @@ body {
   min-width: 300px;
 }
 
-button {
-  background-color: #00e1f1;
-  color: #ffffff;
-  border: none;
-  padding: 10px 20px;
-  font-size: 17px;
-  font-family: Raleway;
-  cursor: pointer;
-}
-
-button:hover {
-  opacity: 0.8;
-}
-
 </style>
 <body>
 <!-- NAVBAR -->
@@ -74,6 +60,49 @@ button:hover {
     </div>
   </nav>
 <!-- END NAVBAR -->
+<?php
+	$servername = "localhost";
+	$username = "root";
+	$password = "SIpnz0Sjel";
+
+	// Create connection
+	$conn = mysqli_connect($servername, $username, $password, 'team018');
+
+	// Check connection
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+	}
+	else{
+			echo "Connected successfully";
+	}
+	
+	//----------FUNCTION TO RETURN APPROPRIATE SPECIALIST--------------//
+	//Insert Into LIVE
+	$problem_no = $_SESSION["Problem_no"];
+	$array = $_SESSION["problem_details"];
+	
+	$fields_values = array($problem_no, 123);
+	
+	//----------------CHANGE '123' TO SPECIALIST ID-------------------------//
+	$sql = 'INSERT INTO live (problem_no, specialist_id) VALUES ($fields_values[0], $fields_values[1])'; //Sql prepare statement
+	if (mysqli_query($conn, $sql)) {
+		echo "New record created successfully";
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	}
+	
+	sql2="SELECT live.specialist_id, personnel.name, COUNT(live.problem_no) FROM live INNER JOIN personnel ON personnel.id = live.specialist_id GROUP BY live.specialist_id ORDER BY 3 ASC";
+	$array2 = array();
+	if (mysqli_num_rows($res) > 0) {
+			// output data of each row
+		while($row = mysqli_fetch_row($sql2)) {
+			array_push($array2, $row2[0]);
+		}
+	} 
+	
+	$sql3="SELECT live.specialist_id, personnel.name, COUNT(live.problem_no) FROM live INNER JOIN personnel ON personnel.id = live.specialist_id GROUP BY live.specialist_id ORDER BY 3 ASC";
+
+?>
 <div id="window">
     <p align="center" style="font-size:300%;">Assign Specialist</p>
     <div align="center">
@@ -88,26 +117,32 @@ button:hover {
         <th>Name</th>
         <th>Number of live jobs</th>
         </tr>";
-            echo "<tr>";
-            echo "<td>" . "1011" . "</td>";
-            echo "<td>" . "James Brown" . "</td>";
-            echo '<td align="center">' . "2" . "</td>";
-            echo "</tr>";
-            echo "<tr>";
-            echo "<td>" . "2201" . "</td>";
-            echo "<td>" . "Blake Smith" . "</td>";
-            echo '<td align="center">' . "4" . "</td>";
-            echo "</tr>";
+		if (mysqli_num_rows($res) > 0) {
+			// output data of each row
+			while($row = mysqli_fetch_row($sql3)) {
+				echo "<tr>";
+				echo "<td>" . $row3[0] . "</td>";
+				echo "<td>" . $row3[1] . "</td>";
+				echo '<td align="center">' . $row3[2] . "</td>";
+				echo "</tr>";	
+			}
+		}
+            
         echo "</table>";
         ?>
         <br>
         <p>Choose Specialist:</p>
-        <select style="width:200px">
-            <option value="1011">1011</option>
-            <option value="2201">2201</option>
-        </select>
+		<form method="get" action="changeUser.php">
+			<select name="specialist_selec" style="width:200px">
+					<?php foreach($array2 as $key => $value) { ?>
+					<option value="<?php echo $value ?>"><?php echo $value ?></option>
+					<?php }?>
+				</select>
+				<br><br>
+				<input type="submit" value="Change"></input>
+        </form>
         <br><br>
-        <button type="button" class="btn btn-primary" id="assign_page" onclick="location.href = 'log_problem.php' ">Assign</button> 
+        <button type="button" class="btn btn-primary" onclick="location.href = 'allProblems.html'">Live Jobs</button>
     </div>
 </div>
 </body>
