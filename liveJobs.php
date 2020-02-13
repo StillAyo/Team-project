@@ -1,6 +1,6 @@
 <?php
 $dbDetails = array(
-    'host' => 'mysql',
+    'host' => 'localhost',
     'user' => 'root',
     'pass' => 'SIpnz0Sjel',
     'db'   => 'team018'
