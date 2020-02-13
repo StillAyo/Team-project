@@ -76,40 +76,7 @@ body {
 			echo "Connected successfully";
 	}
 	
-	//----------FUNCTION TO RETURN APPROPRIATE SPECIALIST--------------//
-	//Insert Into LIVE
-	$problem_no = $_SESSION["Problem_no"];
-	$array = $_SESSION["problem_details"];
 	
-	$fields_values = array($problem_no, '123');
-	
-	//----------------CHANGE '123' TO SPECIALIST ID-------------------------//
-	$sql = 'INSERT INTO live (problem_no, specialist_id) VALUES ($fields_values[0], $fields_values[1])'; //Sql prepare statement
-	if (mysqli_query($conn, $sql)) {
-		echo "New record created successfully";
-	} else {
-		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-	}
-	else{
-			echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-
-		}
-	
-	sql2="SELECT live.specialist_id, personnel.name, COUNT(live.problem_no) FROM live INNER JOIN personnel ON personnel.id = live.specialist_id GROUP BY live.specialist_id ORDER BY 3 ASC";
-	$array2 = array();
-	if (mysqli_num_rows($sql2) > 0) {
-			// output data of each row
-		while($row2 = mysqli_fetch_row($sql2)) {
-			array_push($array2, $row2[0]);
-		}
-	}
-	else{
-			echo "Error: " . $sql2 . "<br>" . mysqli_error($conn);
-
-		}
-	
-	$sql3="SELECT live.specialist_id, personnel.name, COUNT(live.problem_no) FROM live INNER JOIN personnel ON personnel.id = live.specialist_id GROUP BY live.specialist_id ORDER BY 3 ASC";
-
 ?>
 <div id="window">
     <p align="center" style="font-size:300%;">Assign Specialist</p>
