@@ -50,23 +50,17 @@ table.dataTable{
     // `d` is the original data object for the row
     return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
         '<tr>'+
-            '<td>Caller Name:</td>'+
-            '<td>'+"Jane Doe"+'</td>'+
-        '</tr>'+
-        '<tr>'+
-            '<td>Phone Number:</td>'+
-            '<td>'+"07453483734"+'</td>'+
-        '</tr>'+
-        '<tr>'+
             '<td>Description:</td>'+
-            '<td>Information about the problem...</td>'+
+            '<td>'+d.description+'</td>'+
         '</tr>'+
     '</table>';
 }
  
 $(document).ready(function() {
     var table = $('#table').DataTable( {
-        "ajax": "datatables_info.txt",
+        "processing": true,
+      "serverSide": true,
+        "ajax": "liveJobs.php",
         "columns": [
             {
                 "className":      'details-control',
@@ -76,7 +70,7 @@ $(document).ready(function() {
             },
             { "data": "problem_no" },
             { "data": "type" },
-            { "data": "specialist" },
+            { "data": "personnel_id" },
             { "data": "date" }
         ],
         "order": [[1, 'asc']]
@@ -103,7 +97,7 @@ $(document).ready(function() {
 <body>
     <!-- NAVBAR -->
   <nav class="navbar navbar-default navbar-dark bg-d">
-        <a class="navbar-brand" href="#">Make-It-All</a>
+        <a class="navbar-brand" href="finalhomepage.html">Make-It-All</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -139,7 +133,7 @@ $(document).ready(function() {
                 <th></th>
                 <th>Problem No</th>
                 <th>Type</th>
-                <th>Specialist ID</th>
+                <th>Caller ID</th>
                 <th>Date</th>
             </tr>
         </thead>
