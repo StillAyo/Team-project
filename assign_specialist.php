@@ -105,15 +105,42 @@ body {
 			echo "no results";
 
 		}
-	print_r($array2);
 	$sql3="SELECT live.specialist_id, personnel.name, COUNT(live.problem_no) FROM live INNER JOIN personnel ON personnel.id = live.specialist_id GROUP BY live.specialist_id ORDER BY 3 ASC";
+	$res3 = mysqli_query($conn, $sql3);
 
 ?>
 <div id="window">
     <p align="center" style="font-size:300%;">Assign Specialist</p>
     <div align="center">
     <p>Suggestions to change:</p>
-       
+       <?php
+			echo '<style>';
+			echo 'table { border-collapse: collapse;}';
+			echo '</style>';
+			echo '<table cellpadding="10", border="1">';
+			echo "<tr>
+			<th>Specialist ID</th>
+			<th>Name</th>
+			<th>Number of live jobs</th>
+			</tr>";
+			if (mysqli_num_rows($res3) > 0) {
+			// output data of each row
+				while($row3 = mysqli_fetch_row($res3)) {
+					echo "<tr>";
+					echo "<td>" . $row3[0] . "</td>";
+					echo "<td>" . $row3[1] . "</td>";
+					echo '<td align="center">' . $row3[2] . "</td>";
+					echo "</tr>";
+				}
+			}
+			else{
+					echo "no results";
+
+				}
+				
+			
+			echo "</table>";
+        ?>
         <br>
         <p>Choose Specialist:</p>
 		
