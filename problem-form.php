@@ -103,7 +103,7 @@ input.invalid {
 					if (mysqli_num_rows($res) > 0) {
 						// output data of each row
 						while($row = mysqli_fetch_assoc($res)) {
-							echo "<option value='.$row['type'].'>" . $row['type'] . "</option>";
+							echo "<option value=".$row['type'].">" . $row['type'] . "</option>";
 						}
 					} else {
 						echo "0 results";
