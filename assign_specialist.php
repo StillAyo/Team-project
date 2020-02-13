@@ -96,8 +96,9 @@ body {
 	$array2 = array();
 	if (mysqli_num_rows($res2) > 0) {
 			// output data of each row
-		while($row2 = mysqli_fetch_row($res2)) {
-			array_push($array2, $row2[0]);
+		while($row2 = mysqli_fetch_assoc($res2)) {
+			print_r($row2);
+			// array_push($array2, $row2[0]);
 		}
 	}
 	else{
