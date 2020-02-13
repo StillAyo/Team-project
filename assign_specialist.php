@@ -90,6 +90,10 @@ body {
 	} else {
 		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 	}
+	else{
+			echo "Error: " . $sql3 . "<br>" . mysqli_error($conn);
+
+		}
 	
 	sql2="SELECT live.specialist_id, personnel.name, COUNT(live.problem_no) FROM live INNER JOIN personnel ON personnel.id = live.specialist_id GROUP BY live.specialist_id ORDER BY 3 ASC";
 	$array2 = array();
@@ -98,7 +102,11 @@ body {
 		while($row2 = mysqli_fetch_row($sql2)) {
 			array_push($array2, $row2[0]);
 		}
-	} 
+	}
+	else{
+			echo "Error: " . $sql3 . "<br>" . mysqli_error($conn);
+
+		}
 	
 	$sql3="SELECT live.specialist_id, personnel.name, COUNT(live.problem_no) FROM live INNER JOIN personnel ON personnel.id = live.specialist_id GROUP BY live.specialist_id ORDER BY 3 ASC";
 
@@ -126,6 +134,10 @@ body {
 				echo '<td align="center">' . $row3[2] . "</td>";
 				echo "</tr>";	
 			}
+		}
+		else{
+			echo "Error: " . $sql3 . "<br>" . mysqli_error($conn);
+
 		}
             
         echo "</table>";
