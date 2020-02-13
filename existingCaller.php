@@ -107,23 +107,15 @@ body {
 			// output data of each row
 			while($row = mysqli_fetch_assoc($res)) {
 				echo "<tr>";
-				echo "<td>" . $row['problem_no'] . "</td>";
-				echo "<td>" . $row['type'] . "</td>";
-				echo "<td>" . $row['date'] . "</td>";
-				echo "<td>" . $row['description'] . "</td>";
+				echo "<td>" . $row[0]['problem_no'] . "</td>";
+				echo "<td>" . $row[0]['type'] . "</td>";
+				echo "<td>" . $row[0]['date'] . "</td>";
+				echo "<td>" . $row[0]['description'] . "</td>";
 				echo "</tr>";
 			}
 		 echo "</table>";
 		} 
-        while($row = $res->fetchRow()){
-            echo "<tr>";
-            echo "<td>" . $row[0] . "</td>";
-            echo "<td>" . $row[1] . "</td>";
-            echo "<td>" . $row[5] . "</td>";
-            echo "<td>" . $row[3] . "</td>";
-            echo "</tr>";
-        }
-        echo "</table>";
+        
         ?>
         <br>
     </div>
