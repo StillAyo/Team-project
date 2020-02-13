@@ -83,7 +83,13 @@ body {
 	$fields_values = array($problem_no, '123');
 	print_r($fields_values);
 	//----------------CHANGE '123' TO SPECIALIST ID-------------------------//
-	
+	$sql = 'INSERT INTO live (problem_no, specialist_id) VALUES ($fields_values[0], $fields_values[1])'; //Sql prepare statement
+	if (mysqli_query($conn, $sql)) {
+		echo "New record created successfully";
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	}
+
 	
 	
 
