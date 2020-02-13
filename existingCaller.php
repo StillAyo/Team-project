@@ -117,7 +117,7 @@ body {
 				echo "</tr>";
 		}
 		
-		
+		echo "</table>";
 		/* if (mysqli_num_rows($res) > 0) {
 			// output data of each row
 			while($row = mysqli_fetch_assoc($res)) {
@@ -129,7 +129,7 @@ body {
 				echo "<td>" . $row[0]['description'] . "</td>";
 				echo "</tr>";
 			}
-		 echo "</table>";
+		 
 		}  */
         
         ?>
