@@ -53,6 +53,7 @@ body {
 	} */
 	
 	$fields_values = array( intval($_GET["caller_id"]), $_SESSION["operator_id"] ,$_GET["date"]." ".$_GET["time"] ,$_GET["reason"] );  //Inputs from form 
+	print_r($fields_values);
 
 	$sql = "insert into call_log (callerid, operatorid, time, reason) VALUES($fields_values[0], $fields_values[1],
 	'$fields_values[2]','$fields_values[3]')";
