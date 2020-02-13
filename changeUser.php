@@ -41,23 +41,16 @@ body {
 	// Create connection
 	$conn = mysqli_connect($servername, $username, $password, 'team018');
 
-	// Check connection
-	if ($conn->connect_error) {
-		die("Connection failed: " . $conn->connect_error);
-	}
-	else{
-			echo "Connected successfully";
-	}
 
 	$specialist_id = $_GET["specialist_selec"];
 	$problem_no = intval($_SESSION["Problem_no"]);
 
 	$array = array($specialist_id, $problem_no);
 
-	$types = array('integer', 'integer'); //Data types of values
-	$sth = 'UPDATE live SET specialist_id = $array[0] WHERE problem_no = $array[1]'; //Sql prepare statement
+	$sql = 'UPDATE live SET specialist_id = $array[0] WHERE problem_no = $array[1]'; //Sql prepare statement
+	
 	if (mysqli_query($conn, $sql)) {
-			echo "New record created successfully";
+			echo "New record updated successfully";
 		} else {
 			echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 		}
