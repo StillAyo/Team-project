@@ -80,12 +80,10 @@ body {
 		$sql="SELECT * FROM problem WHERE personnel_id =$id";
 		$res = mysqli_query($conn, $sql) or trigger_error("Query Failed! SQL: $sql - Error: ".mysqli_error($conn), E_USER_ERROR);
 		$result = mysqli_fetch_all($res, MYSQLI_ASSOC);
-		print_r ($result);
 		
 		$sql2="SELECT name FROM personnel WHERE id ='".$id."'";
 		$res2 = mysqli_query($conn, $sql2) or trigger_error("Query Failed! SQL: $sql2 - Error: ".mysqli_error($conn), E_USER_ERROR);
 		$result2 = mysqli_fetch_row($res2);
-		print_r($result2);
 	?>
 <div id="window">
     <p align="center" style="font-size:300%;text-transform:capitalize;"> <?php echo $result2[0] ?> </p>
@@ -111,7 +109,6 @@ body {
 		echo "</tr>";
 		
 		foreach($result as $x){
-			print_r($x);
 				echo "<tr>";
 				echo "<td>" . $x['problem_no'] . "</td>";
 				echo "<td>" . $x['type'] . "</td>";
@@ -120,16 +117,7 @@ body {
 				echo "</tr>";
 		}
 		
-		if (mysqli_num_rows($res) > 0) {
-			// output data of each row
-			while($row = mysqli_fetch_assoc($res)) {
-				echo "testing";
-			}
-			echo "</table>";
-
-		} else {
-			echo "0 results";
-		}
+		
 		/* if (mysqli_num_rows($res) > 0) {
 			// output data of each row
 			while($row = mysqli_fetch_assoc($res)) {
