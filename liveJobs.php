@@ -7,7 +7,7 @@ $password = "SIpnz0Sjel";
 $conn = mysqli_connect($servername, $username, $password, 'team018');
 
 
-$sql = "SELECT live.problem_no, type, personnel_id as CallerID, date FROM live INNER JOIN problem ON live.problem_no = problem.problem_no";
+$sql = "SELECT * from live";
 
 $res = mysqli_query($conn, $sql) or trigger_error("Query Failed! SQL: $sql - Error: ".mysqli_error($conn), E_USER_ERROR);
 
