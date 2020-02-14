@@ -10,7 +10,9 @@
   background-color: #330067;
 
 }
-
+#test{
+	color:"red"
+}
 .card-stats{
   background-color: #FFFF;
 }
