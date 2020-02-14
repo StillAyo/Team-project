@@ -59,8 +59,7 @@ table.dataTable{
 
 $( document ).ready(function() {
 		var table = $('#table').dataTable({
-					 "bProcessing": true,
-					 "sAjaxSource": "liveJobs.php",
+					 "ajax": "../ajax/data/objects.txt",
 					 "columns": [
 						{
 							"className":      'details-control',
