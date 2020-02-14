@@ -14,4 +14,4 @@ $res = mysqli_query($conn, $sql) or trigger_error("Query Failed! SQL: $sql - Err
 // Fetch all
 $result = mysqli_fetch_all($result, MYSQLI_ASSOC);
  
-echo json_encode($result);
+echo ($result);
