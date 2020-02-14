@@ -12,5 +12,6 @@ $sql = "SELECT live.problem_no, type, personnel_id as CallerID, date FROM live I
 $res = mysqli_query($conn, $sql);
 // Fetch all
 $result = mysqli_fetch_all($result, MYSQLI_ASSOC);
+die(mysqli_error($db)
  
 echo json_encode($result);
