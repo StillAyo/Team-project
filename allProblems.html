@@ -62,6 +62,12 @@ $( document ).ready(function() {
 				 "bProcessing": true,
                  "sAjaxSource": "liveJobs.php",
 				 "columns": [
+					{
+						"className":      'details-control',
+						"orderable":      false,
+						"data":           null,
+						"defaultContent": ''
+					},
 					{ "data": "problem_no" },
 					{ "data": "type" },
 					{ "data": "CallerID" },
