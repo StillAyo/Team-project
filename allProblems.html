@@ -61,11 +61,12 @@ $( document ).ready(function() {
 	$('#example').dataTable({
 				 "bProcessing": true,
                  "sAjaxSource": "response.php",
-				 "aoColumns": [
-						{ mData: 'Empid' } ,
-                        { mData: 'Name' },
-                        { mData: 'Salary' }
-                ]
+				 "columns": [
+					{ "data": "problem_no" },
+					{ "data": "type" },
+					{ "data": "CallerID" },
+					{ "data": "date" }
+				]
         });      
 });
 
