@@ -58,15 +58,15 @@ table.dataTable{
  
 
 $( document ).ready(function() {
-	$('#table').dataTable({
-		 "bProcessing": true,
-		 "sAjaxSource": "response.php",
-		 "aoColumns": [
-				{ mData: 'Empid' } ,
-				{ mData: 'Name' },
-				{ mData: 'Salary' }
-		]
-	});   
+	$('#example').dataTable({
+				 "bProcessing": true,
+                 "sAjaxSource": "response.php",
+				 "aoColumns": [
+						{ mData: 'Empid' } ,
+                        { mData: 'Name' },
+                        { mData: 'Salary' }
+                ]
+        });      
 });
 
   
