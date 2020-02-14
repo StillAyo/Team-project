@@ -1,39 +1,16 @@
 <?php
-$dbDetails = array(
-    'host' => 'localhost',
-    'user' => 'root',
-    'pass' => 'SIpnz0Sjel',
-    'db'   => 'team018'
-);
- 
-// DB table to use
-$table = 'problem';
+$servername = "localhost";
+$username = "root";
+$password = "SIpnz0Sjel";
 
-// Table's primary key
-$primaryKey = 'problem_no';
- 
-// Array of database columns which should be read and sent back to DataTables.
-// The `db` parameter represents the column name in the database, while the `dt`
-// parameter represents the DataTables column identifier. In this case simple
-// indexes
-$columns = array(
-    array( 'db' => 'problem_no', 'dt' => 'problem_no' ),
-    array( 'db' => 'type',  'dt' => 'type' ),
-    array( 'db' => 'personnel_id',   'dt' => 'personnel_id' ),
-    array( 'db' => 'date',     'dt' => 'date' ),
-    array( 'db' => 'description',     'dt' => 'description' )
-);
- 
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, 'team018');
 
+
+$sql = "SELECT live.problem_no, type, personnel_id as CallerID, date FROM live INNER JOIN problem ON live.problem_no = problem.problem_no";
+
+$res = mysqli_query($conn, $sql);
+// Fetch all
+$result = mysqli_fetch_all($result, MYSQLI_ASSOC);
  
- 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * If you just want to use the basic configuration for DataTables with PHP
- * server-side, there is no need to edit below this line.
- */
- 
-require( 'ssp.class.php' );
- 
-echo json_encode(
-    SSP::simple( $_GET, $dbDetails, $table, $primaryKey, $columns )
-);
+echo json_encode($result);
