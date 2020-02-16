@@ -87,7 +87,7 @@ body {
 		$res = mysqli_query($conn, $sql2);
 		$totalJobs = mysqli_fetch_all($res);
 		
-		echo ($totalJobs[0]);
+		echo ($totalJobs[0][0]);
 
 		
 		echo("Error description: " . mysqli_error($conn));
