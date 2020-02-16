@@ -246,13 +246,10 @@ function showUser(str) {
   xmlhttp.open("GET","getuser.php?q="+str,true);
   xmlhttp.send();
 }
-var today = new Date();
-var date = today.getDate()+'/'+today.getMonth+'/'+today.getFullYear();
-document.getElementById('datePicker').valueAsDate = date; //Default Date
+document.getElementById('datePicker').valueAsDate = new Date(); //Default Date
 var d = new Date();
 d.setSeconds(0,0);
 document.getElementById('timePicker').valueAsDate = d; //Default Time
-
 </script>
 
 </body>
