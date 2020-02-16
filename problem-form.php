@@ -81,7 +81,7 @@ input.invalid {
   </nav>
 <!-- END NAVBAR -->
 				
-<form id="regForm" action="assign_specialist.php" method="get">  
+<form id="regForm" action="log_problem.php" method="get">  
   <h1>Problem log:</h1>
   <div class="tab">
     <div align="center">
