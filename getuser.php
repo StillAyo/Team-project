@@ -42,11 +42,11 @@ if (mysqli_num_rows($res) > 0) {
 	while($row = mysqli_fetch_assoc($res)) {
 		print_r($row);
 		echo "<tr>";
-		echo "<td>" . $row[0] . "</td>";
-		echo "<td>" . $row[1] . "</td>";
-		echo "<td>" . $row[2] . "</td>";
-		echo "<td>" . $row[3] . "</td>";
-		echo "<td>" . $row[4] . "</td>";
+		echo "<td>" . $row['id'] . "</td>";
+		echo "<td>" . $row['name'] . "</td>";
+		echo "<td>" . $row['job'] . "</td>";
+		echo "<td>" . $row['dept'] . "</td>";
+		echo "<td>" . $row['telno'] . "</td>";
 		echo "</tr>";
 	}
 } 
