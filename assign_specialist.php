@@ -83,12 +83,16 @@ body {
 		
 		$sql_2= "SELECT name, COUNT(problem_no) as amount FROM live INNER JOIN personnel ON live.specialist_id = personnel.id GROUP BY name";
 		
-		echo sql_2;
+		$res = mysqli_query($conn, $sql_2);
+		$result = mysqli_fetch_row($res);
+		
+		print_r($result);
+
+		
 		
 	}
 	//Insert Into LIVE
 	$problem_no = $_SESSION["Problem_no"];
-	echo "value is:  ".$problem_no."val";
 	$array = $_SESSION["problem_details"];
 	
 	$fields_values = array($problem_no, '123');
