@@ -91,6 +91,7 @@ body {
 		
 		
 	}
+	rankSpecialists();
 	//Insert Into LIVE
 	$problem_no = $_SESSION["Problem_no"];
 	$array = $_SESSION["problem_details"];
