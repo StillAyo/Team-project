@@ -91,10 +91,7 @@ body {
 		
 		echo("Error description: " . mysqli_error($conn));
 		$highestVal = 0;
-		foreach ($result as $x){
-			$temp = 0.8availability + 0.4specialism + 1loc
-			print_r($x);
-		}
+		
 
 		
 		
