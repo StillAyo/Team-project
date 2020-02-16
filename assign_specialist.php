@@ -86,7 +86,8 @@ body {
 		$sql2 = "select count(problem_no) from live";
 		$res = mysqli_query($conn, $sql2);
 		$totalJobs = mysqli_fetch_all($res);
-		echo $totalJobs;
+		
+		print_r ($totalJobs);
 
 		
 		echo("Error description: " . mysqli_error($conn));
