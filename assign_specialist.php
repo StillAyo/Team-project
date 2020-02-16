@@ -91,7 +91,9 @@ body {
 		
 		echo("Error description: " . mysqli_error($conn));
 		$highestVal = 0;
-		
+		foreach ($result as $x){
+			print_r($x);
+		}
 
 		
 		
