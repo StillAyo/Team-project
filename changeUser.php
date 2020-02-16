@@ -50,7 +50,7 @@ body {
 	$sql = "UPDATE live SET specialist_id = $array[0] WHERE problem_no = $array[1]"; //Sql prepare statement
 	
 	if (mysqli_query($conn, $sql)) {
-			echo "New record updated successfully";
+			echo "";
 		} else {
 			echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 		}
@@ -74,7 +74,7 @@ body {
               <a class="nav-link" href="allProblems.html">Live Jobs</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="reports.html">Analytics</a>
+              <a class="nav-link" href="reports.php">Analytics</a>
             </li>
           </ul>
           <ul>

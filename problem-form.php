@@ -53,7 +53,7 @@ input.invalid {
 <body>
 <!-- NAVBAR -->
 <nav class="navbar navbar-default navbar-dark bg-d">
-    <a class="navbar-brand" href="#">Make-It-All</a>
+    <a class="navbar-brand" href="finalhomepage.html">Make-It-All</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -69,7 +69,7 @@ input.invalid {
           <a class="nav-link" href="allProblems.html">Live Jobs</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="reports.html">Analytics</a>
+          <a class="nav-link" href="reports.php">Analytics</a>
         </li>
       </ul>
       <ul>

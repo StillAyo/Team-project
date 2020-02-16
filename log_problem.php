@@ -49,7 +49,7 @@ body {
           <a class="nav-link" href="allProblems.html">Live Jobs</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="reports.html">Analytics</a>
+          <a class="nav-link" href="reports.php">Analytics</a>
         </li>
       </ul>
       <ul>
@@ -73,11 +73,8 @@ body {
 	
 	$caller_id = intval($_SESSION["caller_id"]);
 	$date = $_SESSION["date"];
-	echo $date;
 	$newDate = date("d-m-Y", strtotime($date));
-	echo $newDate;
 	$fields_values = array($_GET["type"] , intval($_GET["serial_no"]) , $_GET["description"], $caller_id, $newDate);  //Inputs from form
-	print_r($fields_values);
 	echo "<br/>";
 	$_SESSION["problem_details"] = $fields_values;
 	
@@ -85,7 +82,6 @@ body {
 	// Insert New Problem into problem table
 	$sql = "INSERT INTO problem (type, serial_no, description, personnel_id, date) VALUES ('$fields_values[0]',$fields_values[1],'$fields_values[2]',$fields_values[3],'$fields_values[4]')";
 	echo "<br/>";
-	echo $sql;
 	if (mysqli_query($conn, $sql)) {
 		echo "New record created successfully";
 	} else {

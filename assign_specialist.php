@@ -49,7 +49,7 @@ body {
           <a class="nav-link" href="allProblems.html">Live Jobs</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="reports.html">Analytics</a>
+          <a class="nav-link" href="reports.php">Analytics</a>
         </li>
       </ul>
       <ul>
@@ -89,17 +89,15 @@ body {
 		
 
 		
-		echo("Error description: " . mysqli_error($conn));
 		$highestVal = 0;
 		$specialist_id = "";
 		foreach ($result as $x){
-			$temp = (0.8*($x[3]/intval($totalJobs[0][0])))+ (0.4*(intval($x[1]))) + (1.6*(intval($x[2])));
+			$temp = (0.94*($x[3]/intval($totalJobs[0][0])))+ (0.4*(intval($x[1]))) + (0.2*(intval($x[2])));
 			if ($temp > $highestVal){
 				$highestVal = $temp;
 				$specialist_id .= $x[0];
 			}
 		}
-		echo $specialist_id;
 		return $specialist_id;
 		
 	}
@@ -113,7 +111,7 @@ body {
 	//----------------CHANGE '123' TO SPECIALIST ID-------------------------//
 	$sql = "INSERT INTO live (problem_no, specialist_id) VALUES ($fields_values[0], $fields_values[1])"; //Sql prepare statement
 	if (mysqli_query($conn, $sql)) {
-		echo "New record created successfully";
+		echo "";
 	} else {
 		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 	}
