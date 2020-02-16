@@ -84,7 +84,7 @@ body {
 		$sql_2= "SELECT name, COUNT(problem_no) as amount FROM live INNER JOIN personnel ON live.specialist_id = personnel.id GROUP BY name";
 		
 		$res = mysqli_query($conn, $sql_2);
-		$result = mysqli_fetch_row($res);
+		$result = mysqli_fetch_all($res);
 		
 		print_r($result);
 
