@@ -83,7 +83,7 @@ body {
 	$sql = "INSERT INTO problem (type, serial_no, description, personnel_id, date) VALUES ('$fields_values[0]',$fields_values[1],'$fields_values[2]',$fields_values[3],'$fields_values[4]')";
 	echo "<br/>";
 	if (mysqli_query($conn, $sql)) {
-		echo "New record created successfully";
+		echo "";
 	} else {
 		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 	}
