@@ -245,8 +245,9 @@ function showUser(str) {
   }
   xmlhttp.open("GET","getuser.php?q="+str,true);
   xmlhttp.send();
-}
-document.getElementById('datePicker').valueAsDate = new Date(); //Default Date
+var today = new Date();
+var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+document.getElementById('datePicker').valueAsDate = date; //Default Date
 var d = new Date();
 d.setSeconds(0,0);
 document.getElementById('timePicker').valueAsDate = d; //Default Time
