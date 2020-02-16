@@ -96,7 +96,7 @@ body {
 			$temp = (0.8*($x[3]/intval($totalJobs[0][0])))+ (0.4*(intval($x[1]))) + (1.6*(intval($x[2])));
 			if ($temp > $highestVal){
 				$highestVal = $temp;
-				$specialist_id .= $temp[0];
+				$specialist_id .= $x[0];
 			}
 		}
 		echo $specialist_id;
