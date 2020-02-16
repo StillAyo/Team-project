@@ -85,7 +85,7 @@ body {
 		$res = mysqli_query($conn, $sql);
 		$result = mysqli_fetch_all($res);
 		echo("Error description: " . mysqli_error($conn));
-		foreach ($result[0] as $x){
+		foreach ($result as $x){
 			print_r($x);
 		}
 
