@@ -246,7 +246,7 @@ function showUser(str) {
   xmlhttp.open("GET","getuser.php?q="+str,true);
   xmlhttp.send();
 var today = new Date();
-var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+var date = today.getDate()+'/'+today.getMonth+'/'+today.getFullYear().toString().substr(-2);
 document.getElementById('datePicker').valueAsDate = date; //Default Date
 var d = new Date();
 d.setSeconds(0,0);
