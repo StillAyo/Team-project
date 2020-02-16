@@ -73,7 +73,8 @@ body {
 	
 	$caller_id = intval($_SESSION["caller_id"]);
 	$date = $_SESSION["date"];
-	$fields_values = array($_GET["type"] , intval($_GET["serial_no"]) , $_GET["description"], $caller_id, $date);  //Inputs from form
+	$newDate = date("d-m-Y", strtotime($date));
+	$fields_values = array($_GET["type"] , intval($_GET["serial_no"]) , $_GET["description"], $caller_id, $newDate);  //Inputs from form
 	print_r($fields_values);
 	echo "<br/>";
 	$_SESSION["problem_details"] = $fields_values;
