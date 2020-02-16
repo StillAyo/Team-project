@@ -108,7 +108,7 @@ body {
 	$problem_no = $_SESSION["Problem_no"];
 	$array = $_SESSION["problem_details"];
 	
-	$fields_values = array($problem_no,$specialist_id );
+	$fields_values = array($problem_no,$specialist_id);
 	
 	//----------------CHANGE '123' TO SPECIALIST ID-------------------------//
 	$sql = "INSERT INTO live (problem_no, specialist_id) VALUES ($fields_values[0], $fields_values[1])"; //Sql prepare statement
