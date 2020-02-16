@@ -71,7 +71,7 @@ body {
 
 	
 	//----------FUNCTION TO RETURN APPROPRIATE SPECIALIST using weightings--------------//
-	function rankSpecialists(){
+	function get_suitable_specialist(){
 		$servername = "localhost";
 		$username = "root";
 		$password = "SIpnz0Sjel";
@@ -103,12 +103,12 @@ body {
 		return $specialist_id;
 		
 	}
-	rankSpecialists();
+	$specialist_id = get_suitable_specialist();
 	//Insert Into LIVE
 	$problem_no = $_SESSION["Problem_no"];
 	$array = $_SESSION["problem_details"];
 	
-	$fields_values = array($problem_no, '123');
+	$fields_values = array($problem_no,$specialist_id );
 	
 	//----------------CHANGE '123' TO SPECIALIST ID-------------------------//
 	$sql = "INSERT INTO live (problem_no, specialist_id) VALUES ($fields_values[0], $fields_values[1])"; //Sql prepare statement
