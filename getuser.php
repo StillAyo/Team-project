@@ -40,6 +40,7 @@ echo "<table>
 if (mysqli_num_rows($res) > 0) {
 	// output data of each row
 	while($row = mysqli_fetch_assoc($res)) {
+		print_r($row);
 		echo "<tr>";
 		echo "<td>" . $row[0] . "</td>";
 		echo "<td>" . $row[1] . "</td>";
