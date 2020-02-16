@@ -80,12 +80,19 @@ body {
 		$conn = mysqli_connect($servername, $username, $password, 'team018');
 		
 		$sql = "select name, specialism, experience, COUNT(problem_no) as 'jobs_assigned' from personnel p join specialist_strengths ss on p.id = ss.specialist_id join live l ON p.id = l.specialist_id GROUP BY name, specialism, experience";
-		
-		
 		$res = mysqli_query($conn, $sql);
 		$result = mysqli_fetch_all($res);
+		
+		$sql2 = "select count(problem_no) from live";
+		$res = mysqli_query($conn, $sql2);
+		$totalJobs = mysqli_fetch_all($res);
+		echo $totalJobs;
+
+		
 		echo("Error description: " . mysqli_error($conn));
+		$highestVal = 0;
 		foreach ($result as $x){
+			$temp = 0.8availability + 0.4specialism + 1loc
 			print_r($x);
 		}
 
