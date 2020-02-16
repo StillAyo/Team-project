@@ -79,7 +79,7 @@ body {
 	//----------FUNCTION TO RETURN APPROPRIATE SPECIALIST--------------//
 	//Insert Into LIVE
 	$problem_no = $_SESSION["Problem_no"];
-	echo $problem_no;
+	echo "value is:  ".$problem_no."val";
 	$array = $_SESSION["problem_details"];
 	
 	$fields_values = array($problem_no, '123');
