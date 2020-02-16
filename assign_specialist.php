@@ -86,7 +86,6 @@ body {
 		$res = mysqli_query($conn, $sql);
 		$result = mysqli_fetch_all($res);
 		
-		
 		print_r($result);
 
 		
