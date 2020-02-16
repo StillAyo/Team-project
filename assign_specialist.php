@@ -79,12 +79,13 @@ body {
 		// Create connection
 		$conn = mysqli_connect($servername, $username, $password, 'team018');
 		
-		$sql = "SELECT * from personnel where job = 'Specialist'";
+		$sql = "select name, specialism, experience, COUNT(problem_no) as 'jobs_assigned' from personnel 
+		 p join specialist_strengths ss on p.id = ss.specialist_id join live l ON p.id = l.specialist_id GROUP BY name";
 		
-		$sql_2= "SELECT name, COUNT(problem_no) as amount FROM live INNER JOIN personnel ON live.specialist_id = personnel.id GROUP BY name";
 		
-		$res = mysqli_query($conn, $sql_2);
+		$res = mysqli_query($conn, $sql);
 		$result = mysqli_fetch_all($res);
+		
 		
 		print_r($result);
 
