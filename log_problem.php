@@ -80,7 +80,7 @@ body {
 	
 	
 	// Insert New Problem into problem table
-	$sql = "INSERT INTO problem (type, serial_no, description, personnel_id, date) VALUES ($fields_values[0],$fields_values[1],$fields_values[2],$fields_values[3],$fields_values[4])";
+	$sql = "INSERT INTO problem (type, serial_no, description, personnel_id, date) VALUES ('$fields_values[0]',$fields_values[1],$fields_values[2],$fields_values[3],$fields_values[4])";
 	
 	if (mysqli_query($conn, $sql)) {
 		echo "New record created successfully";
@@ -93,7 +93,7 @@ body {
 	$res = mysqli_query($conn, $sql2);
 	$result = mysqli_fetch_row($res);
 	$_SESSION["Problem_no"] = $result[0];
-	echo $result[0];
+	
 ?>
 <div id="window">
     <p align="center" style="font-size:300%;">Problem Number <?php echo $_SESSION["Problem_no"]; ?> Logged<span style="color: #007bff">&#10004;</span></p>
