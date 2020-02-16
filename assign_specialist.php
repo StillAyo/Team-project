@@ -85,6 +85,7 @@ body {
 		
 		$res = mysqli_query($conn, $sql);
 		$result = mysqli_fetch_all($res);
+		echo("Error description: " . mysqli_error($con));
 		echo "working";
 		print_r($result);
 
