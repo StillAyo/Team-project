@@ -70,7 +70,7 @@ body {
 
 
 	
-	//----------FUNCTION TO RETURN APPROPRIATE SPECIALIST--------------//
+	//----------FUNCTION TO RETURN APPROPRIATE SPECIALIST using weightings--------------//
 	function rankSpecialists(){
 		$servername = "localhost";
 		$username = "root";
@@ -79,7 +79,7 @@ body {
 		// Create connection
 		$conn = mysqli_connect($servername, $username, $password, 'team018');
 		
-		$sql = "select name, specialism, experience, COUNT(problem_no) as 'jobs_assigned' from personnel p join specialist_strengths ss on p.id = ss.specialist_id join live l ON p.id = l.specialist_id GROUP BY name, specialism, experience";
+		$sql = "select id, specialism, experience, COUNT(problem_no) as 'jobs_assigned' from personnel p join specialist_strengths ss on p.id = ss.specialist_id join live l ON p.id = l.specialist_id GROUP BY id, specialism, experience";
 		$res = mysqli_query($conn, $sql);
 		$result = mysqli_fetch_all($res);
 		
@@ -87,16 +87,20 @@ body {
 		$res = mysqli_query($conn, $sql2);
 		$totalJobs = mysqli_fetch_all($res);
 		
-		echo ($totalJobs[0][0]);
 
 		
 		echo("Error description: " . mysqli_error($conn));
 		$highestVal = 0;
+		$specialist_id = "";
 		foreach ($result as $x){
-			print_r($x);
+			$temp = (0.8*($x[3]/$totalJobs[0][0]))+ (0.4*($x[1])) + (1.6*($x[2]));
+			if $temp > $highestVal{
+				$highestVal = $temp;
+				$specialist_id .= $temp[0];
+			}
 		}
-
-		
+		echo $specialist_id;
+		return $specialist_id;
 		
 	}
 	rankSpecialists();
