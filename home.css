@@ -6,13 +6,10 @@
   display: block;
   color: #FFFFFF;
 }
-.card {
-  background-color: #330067;
 
-}
 
 .card-stats{
-  background-color: #FFFF;
+  background-color: #FFFF
 }
 
 
@@ -24,7 +21,7 @@ hr {
 }
 
 .navbar {
-  background-color: #5f0071!important;
+  background-color: #5f0071;
 }
 .navbar .navbar-brand {
   color: #ecf0f1;

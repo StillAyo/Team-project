@@ -68,15 +68,24 @@ body {
 	// Create connection
 	$conn = mysqli_connect($servername, $username, $password, 'team018');
 
-	// Check connection
-	if ($conn->connect_error) {
-		die("Connection failed: " . $conn->connect_error);
-	}
-	else{
-			echo "Connected successfully";
-	}
+
 	
 	//----------FUNCTION TO RETURN APPROPRIATE SPECIALIST--------------//
+	function rankSpecialists(){
+		$servername = "localhost";
+		$username = "root";
+		$password = "SIpnz0Sjel";
+
+		// Create connection
+		$conn = mysqli_connect($servername, $username, $password, 'team018');
+		
+		$sql = "SELECT * from personnel where job = 'Specialist'";
+		
+		$sql_2= "SELECT name, COUNT(problem_no) as amount FROM live INNER JOIN personnel ON live.specialist_id = personnel.id GROUP BY name";
+		
+		echo sql_2;
+		
+	}
 	//Insert Into LIVE
 	$problem_no = $_SESSION["Problem_no"];
 	echo "value is:  ".$problem_no."val";
