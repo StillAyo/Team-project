@@ -12,7 +12,7 @@
 
 <style>
 	.list-group-item{
-		background-color:#5f0071
+		background-color:white
 	}
 </style>
 </head>
@@ -35,7 +35,7 @@
           <a class="nav-link" href="allProblems.html">Live Jobs</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="reports.html">Analytics</a>
+          <a class="nav-link" href="reports.php">Analytics</a>
         </li>
       </ul>
       <ul>
@@ -74,9 +74,9 @@
   <div class="row">
     <div class="col">
       <div class=login-container>
-        <div style="width: 50%; margin:auto; background-color: #5f0071">
+        <div style="width: 50%; margin:auto; background-color:white">
 			<div class="card-body">
-			  <h5 class="font-weight-bold mb-3" style="color:white; text-align:center;">Current Queries</h5>
+			  <h5 class="font-weight-bold mb-3" style="color:black; text-align:center;">Current Queries</h5>
 			</div>
 			<ul class="list-group list-group-flush">
 			<?php
