@@ -47,12 +47,12 @@ body {
 	$_SESSION["date"] = $_GET["date"];
 
 	// Check connection
-	if ($conn->connect_error) {
+	/* if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 	}
 	else{
 			echo "Connected successfully";
-	}
+	} */
 	
 	$fields_values = array( intval($_GET["caller_id"]), $_SESSION["operator_id"] ,$_GET["date"]." ".$_GET["time"] ,$_GET["reason"] );  //Inputs from form 
 	
