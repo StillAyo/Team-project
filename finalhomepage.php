@@ -99,10 +99,10 @@
 				if (mysqli_num_rows($res) > 0) {
 			// output data of each row
 					while($row = mysqli_fetch_assoc($res)) {
+						print_r($row);
 						echo "<tr>";
 							echo "<td><li class='list-group-item'>" . $row[0] . "</li></td>";
 							echo "<td><li class='list-group-item'>" . $row[1] . "</li></td>";
-							echo "<td><li class='list-group-item'>" . $row[2] . "</li></td>";
 							echo "<td><li class='list-group-item'>" . $row[3] . "</li></td>";
 							echo "<td><li class='list-group-item'>" . $row[4] . "</li></td>";
 						echo "</tr>";
