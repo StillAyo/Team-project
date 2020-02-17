@@ -43,10 +43,13 @@
 					die("Connection failed: " . $conn->connect_error);
 				}
 				
+				$sql = "SELECT COUNT(callno) as total_queries FROM call_log";
+				$res = mysqli_query($conn, $sql);
+				$result = json_encode(mysqli_fetch_all($res, MYSQLI_ASSOC));
 				
 				$sql = "SELECT type, COUNT(type) as amount FROM live JOIN problem USING (problem_no) GROUP BY type";
 				$res = mysqli_query($conn, $sql);
-				$result = json_encode(mysqli_fetch_all($res, MYSQLI_ASSOC));
+				$result_1 = json_encode(mysqli_fetch_all($res, MYSQLI_ASSOC));
 				
 				$current_year = date("Y")-1;
 				$sql_2 = "SELECT count(problem_no) from resolved WHERE date BETWEEN '$current_year-01-01' and '$current_year-12-31'";
@@ -63,13 +66,16 @@
 				
 				
 			?>
-			var temp = JSON.parse('<?php echo $result?>');
+			var temp = JSON.parse('<?php echo $result_1?>');
 			var pie_chart_data = [];
 			var headings = ['Problem type', 'Amount'];
 			for (x in temp){
 				pie_chart_data.push([temp[x]['type'], parseInt(temp[x]['amount'])]);
 			}
 			pie_chart_data.splice(0,0,headings);
+			
+			var total_queries = JSON.parse('<?php echo $result?>');
+			document.getElementById("total-queries").innerHTML = total_queries[0];
 			
 			var total_resolved_queries = JSON.parse('<?php echo $result_2?>');
 			document.getElementById("resolved-queries").innerHTML = total_resolved_queries[0];
