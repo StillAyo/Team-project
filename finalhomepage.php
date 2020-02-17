@@ -12,7 +12,7 @@
 
 <style>
 	.list-group-item{
-		background-color:#5f0071
+		background-color:white
 	}
 </style>
 </head>
