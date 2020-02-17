@@ -85,8 +85,9 @@ $problemNumber = $_GET["problemNumber"];
 
    
     //Deleting the problem from the problem table in the database
-    $sql2= "DELETE FROM problem WHERE problem_no='".$problemNumber."';DELETE FROM live WHERE problem_no='".$problemNumber."'";
-	if (mysqli_query($conn, $sql)) {
+    $sql2= "DELETE FROM problem WHERE problem_no='".$problemNumber."'";
+	$sql3=  "DELETE FROM live WHERE problem_no='".$problemNumber."'";
+	if (mysqli_query($conn, $sql) && mysqli_query($conn, $sql) {
 		echo "";
 	} else {
 		echo "Error: " . $sql2 . "<br>" . mysqli_error($conn);
