@@ -88,7 +88,7 @@
 				echo '<style>';
 				echo 'table { border-collapse: collapse;}';
 				echo '</style>';
-				echo '<table cellpadding="10", border="1">';
+				echo '<table cellpadding="10", border="0">';
 				echo '<thead>';
 				echo '<tr>';
 				echo '<th>'."Problem Number".'</th>';
@@ -109,8 +109,8 @@
 					}
 				} 
 			?>
-			  
-			</ul>
+			</ul> 
+			</table>
         <div class="card-body">
           <a href="allProblems.html" style="text-align:center;" class="card-link">View full list</a>
         </div>
