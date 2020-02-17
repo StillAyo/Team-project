@@ -12,7 +12,7 @@
 
 <style>
 	.list-group-item{
-		background-color:#5f0071
+		background-color:white
 	}
 </style>
 </head>
@@ -74,7 +74,7 @@
   <div class="row">
     <div class="col">
       <div class=login-container>
-        <div style="width: 50%; margin:auto; background-color: #5f0071">
+        <div style="width: 50%; margin:auto; background-color:white">
 			<div class="card-body">
 			  <h5 class="font-weight-bold mb-3" style="color:white; text-align:center;">Current Queries</h5>
 			</div>
