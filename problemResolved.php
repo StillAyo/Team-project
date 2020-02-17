@@ -116,17 +116,7 @@ else{
         echo '<th>'."Solution".'</th>';
         echo '</tr>';
     echo '</thead>';
-	if (mysqli_num_rows($res) > 0) {
-// output data of each row
-		while($row = mysqli_fetch_row($res)) {
-			echo "<tr>";
-            echo "<td>" . $row[0] . "</td>";
-            echo "<td>" . $row[1] . "</td>";
-            echo "<td>" . $row[4] . "</td>";
-            echo "<td>" . $_GET["solution"] . "</td>";
-            echo "</tr>";
-		}
-	} 
+
     echo '</table>' ;
     ?>
     </div>
