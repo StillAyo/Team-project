@@ -110,8 +110,12 @@ session_start();
 			*/
 			
 			$_SESSION["operator_id"] = $user_id;
+<<<<<<< HEAD
 			header('Location: finalhomepage.php');
 			exit;
+=======
+			include 'finalhomepage.html';
+>>>>>>> parent of e890884... Update login.php
 		}
 		else{
 			echo "NOT CORRECT";
