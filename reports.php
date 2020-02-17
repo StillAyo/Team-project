@@ -45,7 +45,7 @@
 				
 				$sql = "SELECT COUNT(callno) as total_queries FROM call_log";
 				$res = mysqli_query($conn, $sql);
-				$result = json_encode(mysqli_fetch_all($res, MYSQLI_ASSOC));
+				$result = json_encode(mysqli_fetch_all($res, MYSQLI_NUM));
 				
 				$sql = "SELECT type, COUNT(type) as amount FROM live JOIN problem USING (problem_no) GROUP BY type";
 				$res = mysqli_query($conn, $sql);
