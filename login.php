@@ -110,7 +110,7 @@ session_start();
 			*/
 			
 			$_SESSION["operator_id"] = $user_id;
-			include 'finalhomepage.html';
+			include 'finalhomepage.php';
 		}
 		else{
 			echo "NOT CORRECT";
