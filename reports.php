@@ -42,9 +42,7 @@
 				if ($conn->connect_error) {
 					die("Connection failed: " . $conn->connect_error);
 				}
-				else{
-					echo "connected successfully";
-				}
+				
 				
 				$sql = "SELECT type, COUNT(type) as amount FROM live JOIN problem USING (problem_no) GROUP BY type";
 				$res = mysqli_query($conn, $sql);
