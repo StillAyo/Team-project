@@ -33,14 +33,14 @@ body {
 <body>
 <!-- NAVBAR -->
 <nav class="navbar navbar-default navbar-dark bg-d">
-    <a class="navbar-brand" href="finalhomepage.html">Make-It-All</a>
+    <a class="navbar-brand" href="finalhomepage.php">Make-It-All</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="finalhomepage.html">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="finalhomepage.php">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="logCall.html">Log Call</a>
