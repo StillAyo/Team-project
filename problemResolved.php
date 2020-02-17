@@ -32,19 +32,6 @@ body {
 <title>Problem Resolution</title>
 <body>
 
-<?php
-//Database Connection
-$servername = "localhost";
-$username = "root";
-$password = "SIpnz0Sjel";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, 'team018');
-
-//getter for problem number id for problem being resolved
-$problemNumber = $_GET["problemNumber"];
-
-?> 
    <!-- NAVBAR -->
    <nav class="navbar navbar-default navbar-dark bg-d">
         <a class="navbar-brand" href="#">Make-It-All</a>
@@ -79,7 +66,18 @@ $problemNumber = $_GET["problemNumber"];
     <p align="center" style="font-size:300%;">Problem Solved<span style="color: #007bff">&#10004;</span></p>
     <p align="center">
     <?php  
+		//Database Connection
+	$servername = "localhost";
+	$username = "root";
+	$password = "SIpnz0Sjel";
+
+	// Create connection
+	$conn = mysqli_connect($servername, $username, $password, 'team018');
+
+	//getter for problem number id for problem being resolved
+	$problemNumber = $_GET["problemNumber"];
     //selecting the row in the problem table of the problem being resolved
+	
     $sql= "SELECT * FROM problem WHERE problem_no='".$_GET["problemNumber"]."'";
 	$res = mysqli_query($conn, $sql);
 
@@ -115,7 +113,7 @@ $problemNumber = $_GET["problemNumber"];
     echo '</thead>';
 	if (mysqli_num_rows($res) > 0) {
 // output data of each row
-		while($row = mysqli_fetch_assoc($res)) {
+		while($row = mysqli_fetch_row($res)) {
 			echo "<tr>";
             echo "<td>" . $row[0] . "</td>";
             echo "<td>" . $row[1] . "</td>";
