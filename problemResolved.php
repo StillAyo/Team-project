@@ -73,12 +73,7 @@ body {
 
 	// Create connection
 	$conn = mysqli_connect($servername, $username, $password, 'team018');
-	if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-else{
-        echo "Connected successfully";
-}
+	
 	//getter for problem number id for problem being resolved
 	$problemNumber = $_GET["problemNumber"];
     //selecting the row in the problem table of the problem being resolved
@@ -90,7 +85,7 @@ else{
     //Deleting the problem from the problem table in the database
     $sql1= "DELETE FROM problem WHERE problem_no='".$problemNumber."'";
 	$sql2=  "DELETE FROM live WHERE problem_no='".$problemNumber."'";
-	if (mysqli_query($conn, $sql1) && mysqli_query($conn, $sql2) {
+	if (mysqli_query($conn, $sql1) && mysqli_query($conn, $sql2)) {
 		echo "";
 	} else {
 		echo "Error: " . $sql2 . "<br>" . mysqli_error($conn);
@@ -116,7 +111,17 @@ else{
         echo '<th>'."Solution".'</th>';
         echo '</tr>';
     echo '</thead>';
-
+	if (mysqli_num_rows($res) > 0) {
+// output data of each row
+		while($row = mysqli_fetch_row($res)) {
+			echo "<tr>";
+            echo "<td>" . $row[0] . "</td>";
+            echo "<td>" . $row[1] . "</td>";
+            echo "<td>" . $row[4] . "</td>";
+            echo "<td>" . $_GET["solution"] . "</td>";
+            echo "</tr>";
+		}
+	} 
     echo '</table>' ;
     ?>
     </div>
