@@ -110,8 +110,7 @@ session_start();
 			*/
 			
 			$_SESSION["operator_id"] = $user_id;
-			header('Location: finalhomepage.php');
-			exit;
+			include 'finalhomepage.php';
 		}
 		else{
 			echo "NOT CORRECT";
