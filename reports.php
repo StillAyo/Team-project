@@ -75,6 +75,7 @@
 			pie_chart_data.splice(0,0,headings);
 			
 			var total_queries = JSON.parse('<?php echo $result?>');
+			console.log(total_queries);
 			document.getElementById("total-queries").innerHTML = total_queries[0];
 			
 			var total_resolved_queries = JSON.parse('<?php echo $result_2?>');
