@@ -73,7 +73,12 @@ body {
 
 	// Create connection
 	$conn = mysqli_connect($servername, $username, $password, 'team018');
-
+	if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+else{
+        echo "Connected successfully";
+}
 	//getter for problem number id for problem being resolved
 	$problemNumber = $_GET["problemNumber"];
     //selecting the row in the problem table of the problem being resolved
