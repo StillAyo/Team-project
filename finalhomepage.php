@@ -88,7 +88,7 @@
 				echo '<style>';
 				echo 'table { border-collapse: collapse;}';
 				echo '</style>';
-				echo '<tableborder="0">';
+				echo '<table cellpadding="10", border="1">';
 				echo '<thead>';
 				echo '<tr>';
 				echo '<th>'."Problem Number".'</th>';
@@ -99,7 +99,6 @@
 				if (mysqli_num_rows($res) > 0) {
 			// output data of each row
 					while($row = mysqli_fetch_assoc($res)) {
-						print_r($row);
 						echo "<tr>";
 							echo "<td><li class='list-group-item'>".$row['problem_no']."</li></td>";
 							echo "<td><li class='list-group-item'>".$row['type']."</li></td>";
