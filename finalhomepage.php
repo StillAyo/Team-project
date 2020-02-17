@@ -62,7 +62,7 @@
         <button type="button" class="btn btn-primary btn-lg" onclick="location.href = 'allProblems.html'">Live Jobs</button>
       </div>
       <div class="col">
-        <button type="button" class="btn btn-primary btn-lg" onclick="location.href = 'reports.html'">Analytics</button>
+        <button type="button" class="btn btn-primary btn-lg" onclick="location.href = 'reports.php'">Analytics</button>
       </div>
       <div class="col">
       </div>
