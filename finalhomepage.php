@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html>
 <head>
 <meta charset="utf-8">
@@ -9,14 +9,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <link rel="stylesheet" type="text/css" href="home.css">
-
-<style>
-	.list-group-item{
-		background-color:#5f0071
-	}
-</style>
 </head>
-<body style="background-image:url('https://www.thebalancecareers.com/thmb/gRT3S9WVI4HEFF4NNyx2KymWtBw=/2000x1335/filters:fill(auto,1)/call_center-549596335-589a79fd3df78caebcbf2e5f.jpg')">
+<body style="background-image:url('https://images.unsplash.com/photo-1470790376778-a9fbc86d70e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=649&q=80')">
+
 <!-- NAVBAR -->
   <nav class="navbar navbar-dark bg-primary">
     <a class="navbar-brand" href="#">Make-It-All</a>
@@ -50,10 +45,10 @@
 
 
   <div style="margin-top: 4%;">
-	<p style="text-align:center;"><img src="logo.png" width="500" height="175" alt="Logo"></p>
+	<p style="text-align:center;"><img src="https://pbs.twimg.com/profile_images/925645911539290112/1oDFxNO8_400x400.jpg" width="225" height="175" alt="Logo"></p>
 	</div>
   <br>
-  <div style="padding-left:32.5%">
+  <div style="padding-left:35%">
     <div class="row">
       <div class="col">
         <button type="button" class="btn btn-primary btn-lg" onclick="location.href = 'logCall.html'">Log Call</button>
@@ -74,48 +69,51 @@
   <div class="row">
     <div class="col">
       <div class=login-container>
-        <div style="width: 50%; margin:auto; background-color: #5f0071">
-			<div class="card-body">
-			  <h5 class="font-weight-bold mb-3" style="color:white; text-align:center;">Current Queries</h5>
-			</div>
-			<ul class="list-group list-group-flush">
-			<?php
-				$servername = "localhost";
-				$username = "root";
-				$password = "SIpnz0Sjel";
-
-				// Create connection
-				$conn = mysqli_connect($servername, $username, $password, 'team018');
-				
-				$sql = "SELECT * FROM problem ORDER BY problem_no LIMIT 3";
-				$res = mysqli_query($conn, $sql);
-				
-				echo '<style>';
-				echo 'table { border-collapse: collapse;}';
-				echo '</style>';
-				echo '<table cellpadding="0", border="0">';
-				echo '<thead>';
-				echo '<tr>';
-				echo '<th>'."Problem Number".'</th>';
-				echo '<th>'."Type".'</th>';
-				echo '<th>'."Description".'</th>';
-				echo '<th>'."Personnel ID".'</th>';
-				echo '</tr>';
-				if (mysqli_num_rows($res) > 0) {
-			// output data of each row
-					while($row = mysqli_fetch_assoc($res)) {
-						echo "<tr>";
-							echo "<td><li class='list-group-item'>".$row['problem_no']."</li></td>";
-							echo "<td><li class='list-group-item'>".$row['type']."</li></td>";
-							echo "<td><li class='list-group-item'>".$row['description']."</li></td>";
-							echo "<td><li class='list-group-item'>".$row['personnel_id']."</li></td>";
-						echo "</tr>";
-					}
-				} 
-			?>
-			</ul> 
-			</table>
+        <div class="card" style="width: 50%; margin:auto">
         <div class="card-body">
+          <h5 class="font-weight-bold mb-3" style="color:white; text-align:center;">Current queries</h5>
+        </div>
+        <div class="card-body">
+        <div style="background-color:#ffffff;"><?php
+            //Database Connection
+            require_once 'MDB2.php';
+            include "database-credentials.php";
+            $host='localhost';
+            $dbName='team018';
+            $dsn = "mysql://$username:$password@$host/$dbName";
+            
+            $mdb2 =& MDB2::connect($dsn); 
+            if(PEAR::isError($mdb2)){ 
+                die($mdb2->getMessage());
+            }
+
+            $sql = "SELECT * FROM problem ORDER BY problem_no LIMIT 3";
+            $res =& $mdb2->query($sql);
+            if(PEAR::isError($res)){ 
+                die($res->getMessage());
+            }
+            echo '<style>';
+            echo 'table { border-collapse: collapse;}';
+            echo '</style>';
+            echo '<table cellpadding="10", border="1">';
+            echo '<thead>';
+            echo '<tr>';
+                echo '<th>'."Problem Number".'</th>';
+                echo '<th>'."Type".'</th>';
+                echo '<th>'."Description".'</th>';
+                echo '<th>'."Personnel ID".'</th>';
+                echo '</tr>';
+            echo '</thead>';
+                while($row = $res->fetchRow()) {
+                    echo "<tr>";
+                    echo "<td>" . $row[0] . "</td>";
+                    echo "<td>" . $row[1] . "</td>";
+                    echo "<td>" . $row[3] . "</td>";
+                    echo "<td>" . $row[4] . "</td>";
+                    echo "</tr>";
+                }
+            echo '</table>' ;
+          ?></div>
           <a href="allProblems.html" style="text-align:center;" class="card-link">View full list</a>
         </div>
       </div>
