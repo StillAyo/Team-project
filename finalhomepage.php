@@ -10,6 +10,11 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <link rel="stylesheet" type="text/css" href="home.css">
 
+<style>
+	.list-group-item{
+		background-color:#5f0071
+	}
+</style>
 </head>
 <body style="background-image:url('https://www.thebalancecareers.com/thmb/gRT3S9WVI4HEFF4NNyx2KymWtBw=/2000x1335/filters:fill(auto,1)/call_center-549596335-589a79fd3df78caebcbf2e5f.jpg')">
 <!-- NAVBAR -->
@@ -101,10 +106,10 @@
 					while($row = mysqli_fetch_assoc($res)) {
 						print_r($row);
 						echo "<tr>";
-							echo "<td><li class='list-group-item', background-color:#5f0071>".$row['problem_no']."</li></td>";
-							echo "<td><li class='list-group-item', background-color:#5f0071>".$row['type']."</li></td>";
-							echo "<td><li class='list-group-item', background-color:#5f0071>".$row['description']."</li></td>";
-							echo "<td><li class='list-group-item', background-color:#5f0071>".$row['personnel_id']."</li></td>";
+							echo "<td><li class='list-group-item'>".$row['problem_no']."</li></td>";
+							echo "<td><li class='list-group-item'>".$row['type']."</li></td>";
+							echo "<td><li class='list-group-item'>".$row['description']."</li></td>";
+							echo "<td><li class='list-group-item'>".$row['personnel_id']."</li></td>";
 						echo "</tr>";
 					}
 				} 
