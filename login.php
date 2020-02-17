@@ -22,7 +22,7 @@ session_start();
 	else {
 		echo "connected";
 	} */
-	
+
 	function checkUser($user_id){
 		$servername = "localhost";
 		$username = "root";
@@ -31,14 +31,14 @@ session_start();
 		// Create connection
 		$conn = mysqli_connect($servername, $username, $password, 'team018');
 
-		
+
 		$sql = "select job, site_id from personnel where id = $user_id";
 		$res = mysqli_query($conn, $sql);
 		// Fetch all
 		$result = mysqli_fetch_all($res, MYSQLI_ASSOC);
 
-	
-		
+
+
 		if (strtolower($result[0]['job']) == "operator") {
 			return true;
 		}
@@ -50,12 +50,12 @@ session_start();
 		$hashed_password = hash("sha256", $plaintext_password);
 		return $hashed_password;
 	}
-	
+
 	function generateSalt(){
 		$salt = bin2hex(random_bytes(32));
 		return $salt;
 	}
-	
+
 	function retrievePassword($user_id){
 		$servername = "localhost";
 		$username = "root";
@@ -64,17 +64,17 @@ session_start();
 		// Create connection
 		$conn = mysqli_connect($servername, $username, $password, 'team018');
 
-	
+
 		$sql = "select salt, password_hash from personnel where id = $user_id";
 		$res = mysqli_query($conn, $sql);
 		// Fetch all
-		$result = mysqli_fetch_all($res, MYSQLI_ASSOC);		
-		
+		$result = mysqli_fetch_all($res, MYSQLI_ASSOC);
+
 		$stored_salt_and_hash = array($result[0]['salt'],$result[0]['password_hash']);
-		
+
 		return $stored_salt_and_hash;
 	}
-	
+
 	function compareHashes($stored_salt, $stored_hash, $password){
 		$hash_to_compare = hashPassword($password);
 		if ($stored_salt.$stored_hash == $stored_salt.$hash_to_compare){
@@ -83,34 +83,43 @@ session_start();
 		else{
 			return false;
 		}
-	} 
+	}
 	$user_id = $_REQUEST['userID'];
 	$password = $_REQUEST['password'];
-	
-	
+
+
 	$id_array = array("11111", "1234", "22222", "33333", "34544", "5678", "9011", "9453");
-	
-	
-	
-	
+
+
+
+
 
 	$current_user = checkUser($user_id);
-	
+
 	if (checkUser($user_id)){
 		$stored_credentials = retrievePassword($user_id);
 		if(compareHashes($stored_credentials[0], $stored_credentials[1], $password)){
 			/* test
-			
+
 			echo "ID string:  {$_REQUEST['userID']} <br /> ";
 			echo "password entered:   {$_REQUEST['password']} <br />";
 			$stored_password = retrievePassword($user_id);
 			echo "password saved:"; print_r($stored_password); echo "<br/>";
-			echo "query string:     {$_SERVER['QUERY_STRING']} <br />"; // method=post does not show  
-			echo "Action URL:       {$_SERVER['PHP_SELF']} <br />"; 
+			echo "query string:     {$_SERVER['QUERY_STRING']} <br />"; // method=post does not show
+			echo "Action URL:       {$_SERVER['PHP_SELF']} <br />";
 			*/
-			
+
 			$_SESSION["operator_id"] = $user_id;
+<<<<<<< HEAD
 			include 'finalhomepage.php';
+=======
+<<<<<<< HEAD
+			header('Location: finalhomepage.php');
+			exit;
+=======
+			include 'finalhomepage.html';
+>>>>>>> parent of e890884... Update login.php
+>>>>>>> 43004785de2c2bfe348b462ec025681fca85dffd
 		}
 		else{
 			echo "NOT CORRECT";
@@ -119,9 +128,9 @@ session_start();
 	else{
 		echo "incorrect privileges";
 	}
-	
+
 ?>
 
 
 </body>
-</html> 
+</html>
