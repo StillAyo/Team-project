@@ -109,6 +109,7 @@
 							echo "<td><li class='list-group-item'>".$row['type']."</li></td>";
 							echo "<td><li class='list-group-item'>".$row['description']."</li></td>";
 							echo "<td><li class='list-group-item'>".$row['personnel_id']."</li></td>";
+							echo "<td><li class='list-group-item'>"."'<button type='button' class='btn btn-primary btn-lg' onclick='location.href = 'reports.php''>"'Analytics'."</li></td>";
 						echo "</tr>";
 					}
 				} 
