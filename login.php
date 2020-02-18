@@ -114,12 +114,12 @@ session_start();
 			exit;
 		}
 		else{
-			header('Location: login.html');
+			header('Location: index.html');
 			exit;
 		}
 	}
 	else{
-		header('Location: login.html');
+		header('Location: index.html');
 		exit;
 	}
 
