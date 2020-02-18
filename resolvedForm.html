@@ -80,13 +80,18 @@ button:hover {
         <h1>Problem Resolved</h1>
         <div class="tab">
           <p><input id="problem_no" placeholder="Problem Number" name="problemNumber"></p>
-          <p><input type="date" name="date"></p>
-          <p><input name="solution" rows="4" cols="50" placeholder="Solution for the problem..."></p>
-          <p><input name="notes" rows="4" cols="50" placeholder="Additional Notes"></p>
+          <p><input type="date" name="date" id="datePicker"></p>
+          <p><textarea name="solution" form="resolvedForm" id="solution" placeholder="Solution for the problem" size="40"></textarea></p>
+          <p><textarea name="notes" form="resolvedForm" id="notes" placeholder="Additional Notes" size="40"></textarea></p>
           <p><input name="specialist" rows="4" cols="50" placeholder="ID of specialist"></p>
           <button type="submit" class="btn btn-primary" id="resolve" >Resolve</button>
           </div>
           </form>
 </div>
+	<script>
+		document.getElementById('datePicker').valueAsDate = new Date(); //Default Date
+		document.getElementById('solution').style.height="100px";
+		document.getElementById('notes').style.height="100px";
+	</script>
 </body>
 </html>
