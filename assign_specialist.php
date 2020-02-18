@@ -132,10 +132,14 @@ body {
 		}
 	$sql3="SELECT live.specialist_id, personnel.name, COUNT(live.problem_no) FROM live INNER JOIN personnel ON personnel.id = live.specialist_id GROUP BY live.specialist_id ORDER BY 3 ASC";
 	$res3 = mysqli_query($conn, $sql3);
+	
+	$sql4 = "SELECT name from personnel WHERE personnel_id = '$fields_values[1]'";
+	$res4 = mysqli_query($conn, $sql4);
+	$result = mysqli_fetch_all($res4);
 
 ?>
 <div id="window">
-    <p align="center" style="font-size:300%;">Assign Specialist</p>
+    <p align="center" style="font-size:300%;">Specialist <?php $result ?> Assigned</p>
     <div align="center">
     <p>Suggestions to change:</p>
        <?php
