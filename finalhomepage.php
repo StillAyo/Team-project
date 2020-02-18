@@ -86,7 +86,8 @@
 
 				// Create connection
 				$conn = mysqli_connect($servername, $username, $password, 'team018');
-				
+				         
+
 				$sql = "SELECT * FROM problem ORDER BY problem_no LIMIT 3";
 				$res = mysqli_query($conn, $sql);
 				
@@ -109,7 +110,7 @@
 							echo "<td><li class='list-group-item'>".$row['type']."</li></td>";
 							echo "<td><li class='list-group-item'>".$row['description']."</li></td>";
 							echo "<td><li class='list-group-item'>".$row['personnel_id']."</li></td>";
-							echo "<td><li class='list-group-item'>"."'<button type='button' class='btn btn-primary btn-lg' onclick='location.href = 'reports.php''>"'Analytics'."</li></td>";
+							echo "<td><li class='list-group-item'>"."<button type='button' class='btn btn-primary btn-lg' onclick='location.href = 'reports.php''>Analytics</button> "."</li></td>";
 						echo "</tr>";
 					}
 				} 
