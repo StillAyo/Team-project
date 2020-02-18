@@ -91,12 +91,7 @@ body {
 		echo "Error: " . $sql2 . "<br>" . mysqli_error($conn);
 	}
     //Inserting the resolved problem into the resovled table
-	$sql4 = "SELECT personnel_id FROM problem WHERE problem_no = $_GET['problemNumber']";
-	$res2 = mysqli_query($conn, $sql4);
-	$result = mysqli_fetch_all($res2);
-	echo $result;
-	
-    $sql3= "INSERT INTO resolved (problem_no, solution, date, notes, specialist_id) VALUES ('".$_GET["problemNumber"]."', '".$_GET["solution"]."', '".$_GET["date"]."', '".$_GET["notes"]."', '".$_GET["specialist"]."')";
+    $sql3= "INSERT INTO resolved (problem_no, solution, date, notes, specialist_id) VALUES ('".$_GET["problemNumber"]."', '".$_GET["solution"]."', '".$_GET["date"]."', '".$_GET["notes"]."', '123')";
     if (mysqli_query($conn, $sql3)) {
 		echo "";
 	} else {
