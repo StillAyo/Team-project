@@ -101,6 +101,7 @@
 				echo '<th>'."Type".'</th>';
 				echo '<th>'."Description".'</th>';
 				echo '<th>'."Personnel ID".'</th>';
+				echo '<th>'."".'</th>';
 				echo '</tr>';
 				if (mysqli_num_rows($res) > 0) {
 			// output data of each row
@@ -110,7 +111,7 @@
 							echo "<td><li class='list-group-item'>".$row['type']."</li></td>";
 							echo "<td><li class='list-group-item'>".$row['description']."</li></td>";
 							echo "<td><li class='list-group-item'>".$row['personnel_id']."</li></td>";
-							echo "<td><li class='list-group-item'>"."<button type='button' class='btn btn-primary btn-xs' onclick='location.href = 'reports.php''>Analytics</button> "."</li></td>";
+							echo "<td><li class='list-group-item'>"."<button type='button' class='btn btn-primary btn-xs' onclick='location.href = 'reports.php'>Analytics</button> "."</li></td>";
 						echo "</tr>";
 					}
 				} 
