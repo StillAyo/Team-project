@@ -94,6 +94,9 @@ body {
 	$result = mysqli_fetch_row($res);
 	$_SESSION["Problem_no"] = $result[0];
 	
+	$sql3="SELECT problem.problem_no, problem.description, resolved.solution, resolved.date, resolved.notes FROM resolved INNER JOIN problem ON resolved.problem_no = problem.problem_no WHERE problem.type = '".$_GET["type"]."' ORDER BY resolved.date DESC";
+	$res2 = mysqli_query($conn, $sql3);
+	
 ?>
 <div id="window">
     <p align="center" style="font-size:300%;">Problem Number <?php echo $_SESSION["Problem_no"]; ?> Logged<span style="color: #007bff">&#10004;</span></p>
@@ -112,9 +115,9 @@ body {
       <th>Notes</th>
       </tr>";
 	  $x = 0;
-		if (mysqli_num_rows($res) > 0) {
+		if (mysqli_num_rows($res2) > 0) {
 			// output data of each row
-			while($row = mysqli_fetch_assoc($res)) {
+			while($row = mysqli_fetch_assoc($res2)) {
 				echo "<option value=".$row['type'].">" . $row['type'] . "</option>";
 				echo "<tr>";
 				echo "<td>" . $row[0] . "</td>";

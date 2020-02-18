@@ -61,7 +61,7 @@ body {
 	'$fields_values[2]','$fields_values[3]')";
 		
 	if (mysqli_query($conn, $sql)) {
-		echo "New record created successfully";
+		echo "";
 	} else {
 		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 	}
