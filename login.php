@@ -114,11 +114,13 @@ session_start();
 			exit;
 		}
 		else{
-			echo "NOT CORRECT";
+			header('Location: login.html');
+			exit;
 		}
 	}
 	else{
-		echo "incorrect privileges";
+		header('Location: login.html');
+		exit;
 	}
 
 ?>

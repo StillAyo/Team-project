@@ -139,7 +139,7 @@ body {
 
 ?>
 <div id="window">
-    <p align="center" style="font-size:300%;">Specialist <?php $result ?> Assigned</p>
+    <p align="center" style="font-size:300%;">Specialist <?php echo($result) ?> Assigned</p>
     <div align="center">
     <p>Suggestions to change:</p>
        <?php
