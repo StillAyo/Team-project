@@ -124,6 +124,7 @@ body {
 	} 
     echo '</table>' ;
     ?>
+	    <p align="center"><button type="button" class="btn btn-light" id="resolve problem" onclick="location.href = 'resolvedForm.html'">Resolve another problem?</button></p>
     </div>
 </div>
 </body>
